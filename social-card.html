@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200, height=630">
+  <title>MA Immigrant Spending - Social Card</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .card {
+      width: 1200px;
+      height: 630px;
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a0508 50%, #0a0a0f 100%);
+      color: #fff;
+      padding: 48px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      border-radius: 0;
+    }
+    .accent {
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(239,68,68,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .badge {
+      display: inline-block;
+      background: #ef4444;
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 56px;
+      font-weight: 800;
+      margin: 0 0 8px 0;
+      background: linear-gradient(90deg, #ef4444, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .subtitle {
+      font-size: 22px;
+      color: #a1a1aa;
+    }
+    .stats {
+      display: flex;
+      gap: 32px;
+    }
+    .stat-box {
+      flex: 1;
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+    }
+    .stat-box.red {
+      background: rgba(239,68,68,0.1);
+      border: 2px solid #ef4444;
+    }
+    .stat-box.orange {
+      background: rgba(245,158,11,0.1);
+      border: 2px solid #f59e0b;
+    }
+    .stat-box.green {
+      background: rgba(34,197,94,0.1);
+      border: 2px solid #22c55e;
+    }
+    .stat-label {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .stat-box.red .stat-label { color: #ef4444; }
+    .stat-box.orange .stat-label { color: #f59e0b; }
+    .stat-box.green .stat-label { color: #22c55e; }
+    .stat-value {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .stat-box.red .stat-value { color: #ef4444; }
+    .stat-box.orange .stat-value { color: #f59e0b; }
+    .stat-box.green .stat-value { color: #22c55e; }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .sources {
+      font-size: 14px;
+      color: #71717a;
+    }
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: #a1a1aa;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="accent"></div>
+    
+    <div class="header">
+      <div class="badge">MASSACHUSETTS DATA</div>
+      <h1>The Invasion: The Taxpayer Cost</h1>
+      <p class="subtitle">What Massachusetts taxpayers are paying for shelter, education, and services</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat-box red">
+        <div class="stat-label">ANNUAL COST (FY25)</div>
+        <div class="stat-value">$1.88B</div>
+      </div>
+      <div class="stat-box orange">
+        <div class="stat-label">PER TAXPAYER/YEAR</div>
+        <div class="stat-value">$537</div>
+      </div>
+      <div class="stat-box green">
+        <div class="stat-label">TWO-YEAR TOTAL</div>
+        <div class="stat-value">$3.1B</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="sources">56,374 official data points | MA State Checkbook, Boston Herald, CIS, OCPF</div>
+      <div class="brand">duncanburns2013-dot.github.io/The-Invasion/dashboard</div>
+    </div>
+  </div>
+</body>
+</html>
