@@ -1,6 +1,6 @@
 # Massachusetts Immigrant Spending Audit
 
-**Live Dashboard:** [https://duncanburns2013-dot.github.io/The-Invasion/dashboard/](https://duncanburns2013-dot.github.io/The-Invasion/dashboard/)
+**Live Dashboard:** [https://duncanburns2013-dot.github.io/The-Invasion/](https://duncanburns2013-dot.github.io/The-Invasion/)
 
 **GitHub:** [https://github.com/duncanburns2013-dot/The-Invasion](https://github.com/duncanburns2013-dot/The-Invasion)
 
