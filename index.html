@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Invasion: The Taxpayer Cost</title>
+  <meta name="description" content="$1.88B annual cost. $537 per taxpayer. 56,374 official data points analyzed.">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://duncanburns2013-dot.github.io/The-Invasion/">
+  <meta property="og:title" content="The Invasion: The Taxpayer Cost">
+  <meta property="og:description" content="$537 per MA taxpayer annually. $3.1B over two years. 56,374 official data points.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/duncanburns2013-dot/The-Invasion/main/social-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@DuncanBurnsMA">
+  <meta name="twitter:title" content="The Invasion: The Taxpayer Cost">
+  <meta name="twitter:description" content="$537 per MA taxpayer annually. $3.1B over two years. 56,374 official data points.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/duncanburns2013-dot/The-Invasion/main/social-card.jpg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --cream: #FFFDF9;
+      --warm-white: #FAF8F5;
+      --navy: #1a2744;
+      --navy-light: #2d3a52;
+      --crimson: #9c1b1f;
+      --crimson-light: #c42a2f;
+      --gold: #c9a227;
+      --gold-dark: #a8871f;
+      --teal: #1a5f5f;
+      --gray-100: #f5f4f2;
+      --gray-200: #e8e6e1;
+      --gray-300: #d4d1ca;
+      --gray-500: #8a8780;
+      --gray-700: #4a4845;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Source Sans 3', -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: var(--cream);
+      padding: 48px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(201, 162, 39, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--crimson) 0%, var(--gold) 50%, var(--crimson) 100%);
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 6px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    h1 span {
+      color: var(--gold);
+    }
+    
+    .subtitle {
+      font-size: 18px;
+      color: rgba(255,253,249,0.75);
+      max-width: 600px;
+    }
+    
+    /* Stats Bar */
+    .stats-bar {
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 28px 0;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 0 12px;
+      border-right: 1px solid var(--gray-200);
+    }
+    .stat-item:last-child { border-right: none; }
+    
+    .stat-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--gray-500);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    
+    .stat-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .stat-value.crimson { color: var(--crimson); }
+    .stat-value.gold { color: var(--gold-dark); }
+    .stat-value.teal { color: var(--teal); }
+    .stat-value.navy { color: var(--navy); }
+    
+    .stat-note {
+      font-size: 12px;
+      color: var(--gray-500);
+      margin-top: 4px;
+    }
+    
+    /* Navigation */
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--gray-200);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(26,39,68,0.04);
+    }
+    
+    .tabs {
+      display: flex;
+      gap: 0;
+    }
+    
+    .tab {
+      padding: 16px 24px;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: var(--gray-500);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab:hover {
+      color: var(--navy);
+      background: var(--gray-100);
+    }
+    .tab.active {
+      color: var(--crimson);
+      border-bottom-color: var(--crimson);
+    }
+    
+    /* Main Content */
+    main {
+      padding: 48px 0 64px;
+      background: var(--cream);
+    }
+    
+    .panel { display: none; }
+    .panel.active { display: block; }
+    
+    /* Section Headers */
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .section-desc {
+      color: var(--gray-500);
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+    
+    /* Cards */
+    .card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 2px;
+      box-shadow: 0 2px 12px rgba(26,39,68,0.04);
+    }
+    
+    .card-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .card-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    
+    .card-badge {
+      background: var(--crimson);
+      color: white;
+      padding: 4px 10px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    /* Data Rows */
+    .data-row {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--gray-100);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .data-row:last-child { border-bottom: none; }
+    .data-row:hover { background: var(--gray-100); }
+    
+    .data-label {
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .data-desc {
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+    
+    .data-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+    
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    
+    /* Highlight Box */
+    .highlight-box {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: var(--cream);
+      padding: 36px;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .highlight-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    
+    .highlight-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1;
+      color: white;
+    }
+    
+    .highlight-note {
+      font-size: 14px;
+      color: rgba(255,253,249,0.7);
+      margin-top: 12px;
+    }
+    
+    .highlight-sub {
+      display: flex;
+      gap: 32px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,253,249,0.15);
+    }
+    
+    .highlight-sub-item { text-align: center; }
+    .highlight-sub-item .label {
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: rgba(255,253,249,0.6);
+      margin-bottom: 4px;
+    }
+    .highlight-sub-item .value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    
+    /* Metric Cards */
+    .metric-card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      padding: 24px;
+      text-align: center;
+    }
+    
+    .metric-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--gray-500);
+      margin-bottom: 8px;
+    }
+    
+    .metric-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    
+    .metric-note {
+      font-size: 12px;
+      color: var(--gray-500);
+      margin-top: 6px;
+    }
+    
+    /* Callout Box */
+    .callout {
+      background: white;
+      border: 2px solid var(--gold);
+      border-left-width: 6px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .callout-content h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    
+    .callout-content p {
+      color: var(--gray-700);
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 640px;
+    }
+    
+    .callout-stats {
+      text-align: right;
+      margin-left: 32px;
+      flex-shrink: 0;
+    }
+    
+    .callout-big {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--teal);
+    }
+    
+    .callout-small {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--crimson);
+      margin-top: 4px;
+    }
+    
+    .callout-label {
+      font-size: 10px;
+      color: var(--gray-500);
+      letter-spacing: 1px;
+    }
+    
+    /* State Comparison */
+    .state-comparison {
+      background: white;
+      border: 1px solid var(--gray-200);
+      margin-bottom: 36px;
+    }
+    
+    .state-row {
+      display: grid;
+      grid-template-columns: 160px 1fr 120px 100px;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--gray-100);
+      gap: 16px;
+    }
+    .state-row:last-child { border-bottom: none; }
+    .state-row.header {
+      background: var(--gray-100);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--gray-500);
+      padding: 12px 24px;
+    }
+    .state-row.massachusetts {
+      background: linear-gradient(90deg, rgba(156,27,31,0.08) 0%, transparent 100%);
+      border-left: 4px solid var(--crimson);
+    }
+    
+    .state-name {
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .state-name.highlight { color: var(--crimson); }
+    
+    .state-bar {
+      height: 24px;
+      background: var(--gray-100);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+    .state-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--navy-light) 100%);
+      border-radius: 2px;
+    }
+    .state-bar-fill.ma {
+      background: linear-gradient(90deg, var(--crimson) 0%, var(--crimson-light) 100%);
+    }
+    
+    .state-cost {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-align: right;
+    }
+    
+    .state-per-capita {
+      font-size: 14px;
+      color: var(--gray-500);
+      text-align: right;
+    }
+    
+    /* Organization Grid */
+    .org-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    
+    .org-card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      padding: 20px 24px;
+    }
+    .org-card.featured {
+      border: 2px solid var(--crimson);
+      background: linear-gradient(135deg, white 0%, rgba(156,27,31,0.03) 100%);
+    }
+    
+    .org-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    
+    .org-name {
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    
+    .org-type {
+      display: inline-block;
+      padding: 3px 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .org-type.health {
+      background: rgba(26,95,95,0.1);
+      color: var(--teal);
+    }
+    .org-type.refugee {
+      background: rgba(26,95,95,0.1);
+      color: var(--teal);
+    }
+    .org-type.advocacy {
+      background: rgba(156,27,31,0.1);
+      color: var(--crimson);
+    }
+    
+    .org-amount {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    
+    .org-footer {
+      background: var(--gray-100);
+      margin: 16px -24px -20px;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--gray-500);
+    }
+    .org-footer.program {
+      background: rgba(26,95,95,0.08);
+      color: var(--teal);
+    }
+    
+    /* Vendor List */
+    .vendor-list { background: white; border: 1px solid var(--gray-200); }
+    
+    .vendor-item {
+      display: grid;
+      grid-template-columns: 60px 1fr 100px 100px;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .vendor-item:last-child { border-bottom: none; }
+    .vendor-item:hover { background: var(--gray-100); }
+    
+    .vendor-pct {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 2px;
+    }
+    .vendor-pct.high {
+      background: rgba(156,27,31,0.1);
+      color: var(--crimson);
+    }
+    .vendor-pct.med {
+      background: rgba(26,95,95,0.1);
+      color: var(--teal);
+    }
+    
+    .vendor-name {
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .vendor-desc {
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+    
+    .vendor-col {
+      text-align: right;
+    }
+    .vendor-col .label {
+      font-size: 10px;
+      color: var(--gray-500);
+      letter-spacing: 0.5px;
+    }
+    .vendor-col .value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    
+    /* Lobbyist Grid */
+    .lobbyist-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    
+    .lobbyist-card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .lobbyist-name {
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .lobbyist-years {
+      font-size: 12px;
+      color: var(--gray-500);
+    }
+    .lobbyist-amount {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--crimson);
+    }
+    
+    /* Power List */
+    .power-list {
+      background: white;
+      border: 1px solid var(--gray-200);
+    }
+    
+    .power-item {
+      display: grid;
+      grid-template-columns: 1fr 100px;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .power-item:last-child { border-bottom: none; }
+    .power-item:hover { background: var(--gray-100); }
+    
+    .power-name {
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .power-role {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold-dark);
+      margin-top: 2px;
+    }
+    
+    .power-stats { text-align: right; }
+    .power-amount {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .power-count {
+      font-size: 11px;
+      color: var(--gray-500);
+    }
+    
+    /* Conflict Box */
+    .conflict-box {
+      background: white;
+      border: 2px solid var(--crimson);
+      border-left-width: 6px;
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+    
+    .conflict-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--crimson);
+      margin-bottom: 8px;
+    }
+    
+    .conflict-box p {
+      color: var(--gray-700);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    
+    /* Info Box */
+    .info-box {
+      background: var(--gray-100);
+      border-left: 4px solid var(--gold);
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+    
+    .info-box p {
+      color: var(--gray-700);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--navy);
+      color: rgba(255,253,249,0.7);
+      padding: 32px 0;
+      font-size: 13px;
+    }
+    
+    footer strong {
+      color: var(--cream);
+    }
+    
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 900px) {
+      .stats-grid { grid-template-columns: repeat(3, 1fr); }
+      .stat-item:nth-child(3) { border-right: none; }
+      .stat-item:nth-child(4), .stat-item:nth-child(5) {
+        border-top: 1px solid var(--gray-200);
+        padding-top: 20px;
+        margin-top: 12px;
+      }
+      .grid-2 { grid-template-columns: 1fr; }
+      .org-grid { grid-template-columns: 1fr; }
+      .lobbyist-grid { grid-template-columns: 1fr; }
+      .state-row { grid-template-columns: 120px 1fr 80px; }
+      .state-per-capita { display: none; }
+      h1 { font-size: 36px; }
+      .highlight-value { font-size: 56px; }
+    }
+    
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-right: none; }
+      .vendor-item { grid-template-columns: 48px 1fr; }
+      .vendor-col { display: none; }
+      .callout { flex-direction: column; text-align: center; }
+      .callout-stats { margin: 20px 0 0; }
+      .tabs { overflow-x: auto; }
+      .tab { padding: 14px 16px; white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <div class="badge">MASSACHUSETTS TAXPAYER AUDIT</div>
+      <h1>The Invasion: <span>The Taxpayer Cost</span></h1>
+      <p class="subtitle">$3.1 billion spent in FY24–FY25 on shelter, education, healthcare, and services for illegal immigrants</p>
+    </div>
+  </header>
+
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-label">Total FY25 Cost</div>
+          <div class="stat-value crimson">$1.88B</div>
+          <div class="stat-note">All categories</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Per Taxpayer</div>
+          <div class="stat-value gold">$537</div>
+          <div class="stat-note">Annual cost</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Per Household</div>
+          <div class="stat-value teal">$671</div>
+          <div class="stat-note">Annual cost</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Two-Year Total</div>
+          <div class="stat-value crimson">$3.1B</div>
+          <div class="stat-note">FY24 + FY25</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Data Analyzed</div>
+          <div class="stat-value navy">56,374</div>
+          <div class="stat-note">Official records</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav>
+    <div class="container">
+      <div class="tabs">
+        <button class="tab active" data-tab="overview">Overview</button>
+        <button class="tab" data-tab="comparison">State Comparison</button>
+        <button class="tab" data-tab="vendors">Vendors</button>
+        <button class="tab" data-tab="orgs">Organizations</button>
+        <button class="tab" data-tab="mira">MIRA Coalition</button>
+        <button class="tab" data-tab="aclu">ACLU Donations</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      
+      <!-- OVERVIEW -->
+      <div class="panel active" id="overview">
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Cost Breakdown by Category</span>
+              <span class="card-badge">FY2025</span>
+            </div>
+            <div class="data-row">
+              <div>
+                <div class="data-label">Emergency Shelter System</div>
+                <div class="data-desc">Hotels, shelters, food, services</div>
+              </div>
+              <div class="data-value crimson">$1.06B</div>
+            </div>
+            <div class="data-row">
+              <div>
+                <div class="data-label">Education (K-12)</div>
+                <div class="data-desc">~25,000 children at $23K/student</div>
+              </div>
+              <div class="data-value navy">$575M</div>
+            </div>
+            <div class="data-row">
+              <div>
+                <div class="data-label">Wraparound Services</div>
+                <div class="data-desc">Legal aid, case management, workforce</div>
+              </div>
+              <div class="data-value gold">$150M</div>
+            </div>
+            <div class="data-row">
+              <div>
+                <div class="data-label">Healthcare / MassHealth</div>
+                <div class="data-desc">~$3,800/person estimate</div>
+              </div>
+              <div class="data-value teal">$95M</div>
+            </div>
+            <div class="data-row" style="background: var(--gray-100);">
+              <div class="data-label" style="font-weight: 700;">TOTAL ESTIMATED</div>
+              <div class="data-value crimson" style="font-size: 28px;">$1.88B</div>
+            </div>
+          </div>
+          
+          <div class="highlight-box">
+            <div class="highlight-label">Annual Cost Per MA Taxpayer</div>
+            <div class="highlight-value">$537</div>
+            <div class="highlight-note">$1.88B total ÷ 3.5 million filers</div>
+            <div class="highlight-sub">
+              <div class="highlight-sub-item">
+                <div class="label">PER HOUSEHOLD</div>
+                <div class="value">$671</div>
+              </div>
+              <div class="highlight-sub-item">
+                <div class="label">TWO-YEAR TOTAL</div>
+                <div class="value" style="color: var(--gold);">$3.1B</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="metric-card">
+            <div class="metric-label">Full Checkbook</div>
+            <div class="metric-value">$2.47B</div>
+            <div class="metric-note">Housing/Shelter total</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Immigrant Vendors</div>
+            <div class="metric-value">$228.6M</div>
+            <div class="metric-note">Filtered file</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Actual Programs</div>
+            <div class="metric-value">$142.2M</div>
+            <div class="metric-note">Excl. MassHealth billing</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 36px;">
+          <div class="card-header">
+            <span class="card-title">State-Reported Shelter Costs</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--gray-100);">
+            <div class="data-row" style="border-right: 1px solid var(--gray-100); border-bottom: none;">
+              <div>
+                <div class="data-label">FY24 (Actual)</div>
+                <div class="data-desc">Source: Boston Herald</div>
+              </div>
+              <div class="data-value navy">$856M</div>
+            </div>
+            <div class="data-row" style="border-bottom: none;">
+              <div>
+                <div class="data-label">FY25 (Projected)</div>
+                <div class="data-desc">$830M spent as of June</div>
+              </div>
+              <div class="data-value crimson">$1.06B</div>
+            </div>
+          </div>
+          <div class="data-row" style="background: var(--gray-100);">
+            <div class="data-label" style="font-weight: 700;">SHELTER ONLY (FY24 + FY25)</div>
+            <div class="data-value crimson" style="font-size: 28px;">$1.92B</div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-content">
+            <h3>The MIRA Conflict of Interest</h3>
+            <p><strong>MIRA Coalition</strong> receives <strong style="color: var(--teal);">$7,662,233</strong> in state contracts while spending <strong style="color: var(--crimson);">$87,548</strong> lobbying the same agencies. Contracts increased <strong style="color: var(--gold-dark);">16×</strong> from FY20 to FY25.</p>
+          </div>
+          <div class="callout-stats">
+            <div class="callout-big">$7.66M</div>
+            <div class="callout-label">CONTRACTS</div>
+            <div class="callout-small">+$87.5K</div>
+            <div class="callout-label">LOBBYING</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATE COMPARISON -->
+      <div class="panel" id="comparison">
+        <h2 class="section-title">How Massachusetts Compares</h2>
+        <p class="section-desc">State and local costs from illegal immigration (CBO, FAIR 2023). Massachusetts is one of four states bearing the heaviest shelter burden.</p>
+
+        <div class="info-box">
+          <p><strong>Key finding:</strong> The Congressional Budget Office confirmed that state and local governments in <strong>New York, Massachusetts, Illinois, and Colorado</strong> spent $3.3 billion combined on shelter services in 2023 alone—accounting for 90% of the national increase in asylum seekers in shelters. Meanwhile, the federal government collects payroll taxes while states pay for schools, shelters, and healthcare.</p>
+        </div>
+
+        <div class="state-comparison">
+          <div class="state-row header">
+            <span>STATE</span>
+            <span>RELATIVE COST</span>
+            <span>ANNUAL COST</span>
+            <span>PER CAPITA</span>
+          </div>
+          <div class="state-row">
+            <span class="state-name">California</span>
+            <div class="state-bar"><div class="state-bar-fill" style="width: 100%;"></div></div>
+            <span class="state-cost">$31.0B</span>
+            <span class="state-per-capita">$795</span>
+          </div>
+          <div class="state-row">
+            <span class="state-name">Texas</span>
+            <div class="state-bar"><div class="state-bar-fill" style="width: 35%;"></div></div>
+            <span class="state-cost">$10.9B</span>
+            <span class="state-per-capita">$375</span>
+          </div>
+          <div class="state-row">
+            <span class="state-name">Florida</span>
+            <div class="state-bar"><div class="state-bar-fill" style="width: 26%;"></div></div>
+            <span class="state-cost">$8.0B</span>
+            <span class="state-per-capita">$365</span>
+          </div>
+          <div class="state-row">
+            <span class="state-name">New York</span>
+            <div class="state-bar"><div class="state-bar-fill" style="width: 23%;"></div></div>
+            <span class="state-cost">$7.1B</span>
+            <span class="state-per-capita">$365</span>
+          </div>
+          <div class="state-row">
+            <span class="state-name">New Jersey</span>
+            <div class="state-bar"><div class="state-bar-fill" style="width: 14%;"></div></div>
+            <span class="state-cost">$4.4B</span>
+            <span class="state-per-capita">$475</span>
+          </div>
+          <div class="state-row">
+            <span class="state-name">Illinois</span>
+            <div class="state-bar"><div class="state-bar-fill" style="width: 13%;"></div></div>
+            <span class="state-cost">$4.0B</span>
+            <span class="state-per-capita">$315</span>
+          </div>
+          <div class="state-row massachusetts">
+            <span class="state-name highlight">Massachusetts</span>
+            <div class="state-bar"><div class="state-bar-fill ma" style="width: 6%;"></div></div>
+            <span class="state-cost" style="color: var(--crimson);">$1.88B</span>
+            <span class="state-per-capita" style="color: var(--crimson); font-weight: 700;">$537</span>
+          </div>
+          <div class="state-row">
+            <span class="state-name">Colorado</span>
+            <div class="state-bar"><div class="state-bar-fill" style="width: 5%;"></div></div>
+            <span class="state-cost">$1.5B</span>
+            <span class="state-per-capita">$260</span>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="metric-card" style="border-top: 4px solid var(--crimson);">
+            <div class="metric-label">National Net Cost</div>
+            <div class="metric-value" style="color: var(--crimson);">$150.7B</div>
+            <div class="metric-note">FAIR 2023 Study</div>
+          </div>
+          <div class="metric-card" style="border-top: 4px solid var(--navy);">
+            <div class="metric-label">State/Local Share</div>
+            <div class="metric-value">$115B</div>
+            <div class="metric-note">76% of total cost</div>
+          </div>
+          <div class="metric-card" style="border-top: 4px solid var(--teal);">
+            <div class="metric-label">Federal Share</div>
+            <div class="metric-value" style="color: var(--teal);">$66B</div>
+            <div class="metric-note">But collects payroll tax</div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="callout-content">
+            <h3>The Cost Shift</h3>
+            <p>The Congressional Budget Office found the immigration surge <strong>reduced federal deficits by $0.9 trillion</strong> over 10 years—because immigrants pay payroll taxes for Social Security they may never collect. But <strong>state and local governments bore a net cost of $9.8 billion in 2023 alone</strong> for education, shelter, and healthcare. The feds profit while states bleed.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VENDORS -->
+      <div class="panel" id="vendors">
+        <h2 class="section-title">Shelter Infrastructure Vendors</h2>
+        <p class="section-desc">Vendors supporting immigrant shelters through IT, security, and translation services</p>
+        
+        <div class="vendor-list">
+          <div class="vendor-item">
+            <div class="vendor-pct high">50.6%</div>
+            <div>
+              <div class="vendor-name">Accenture LLP</div>
+              <div class="vendor-desc">IT systems for shelter intake, tracking, case management</div>
+            </div>
+            <div class="vendor-col">
+              <div class="label">TOTAL</div>
+              <div class="value">$26.0M</div>
+            </div>
+            <div class="vendor-col">
+              <div class="label" style="color: var(--crimson);">IMMIGRANT</div>
+              <div class="value" style="color: var(--crimson);">$13.1M</div>
+            </div>
+          </div>
+          <div class="vendor-item">
+            <div class="vendor-pct high">100%</div>
+            <div>
+              <div class="vendor-name">University of Massachusetts</div>
+              <div class="vendor-desc">Emergency Assistance shelter operations</div>
+            </div>
+            <div class="vendor-col">
+              <div class="label">TOTAL</div>
+              <div class="value">$12.6M</div>
+            </div>
+            <div class="vendor-col">
+              <div class="label" style="color: var(--crimson);">IMMIGRANT</div>
+              <div class="value" style="color: var(--crimson);">$12.6M</div>
+            </div>
+          </div>
+          <div class="vendor-item">
+            <div class="vendor-pct high">100%</div>
+            <div>
+              <div class="vendor-name">Internal Security Associates</div>
+              <div class="vendor-desc">Security guards at shelter sites</div>
+            </div>
+            <div class="vendor-col">
+              <div class="label">TOTAL</div>
+              <div class="value">$7.1M</div>
+            </div>
+            <div class="vendor-col">
+              <div class="label" style="color: var(--crimson);">IMMIGRANT</div>
+              <div class="value" style="color: var(--crimson);">$7.1M</div>
+            </div>
+          </div>
+          <div class="vendor-item">
+            <div class="vendor-pct high">100%</div>
+            <div>
+              <div class="vendor-name">TransPerfect Translations</div>
+              <div class="vendor-desc">Translation services for non-English speakers</div>
+            </div>
+            <div class="vendor-col">
+              <div class="label">TOTAL</div>
+              <div class="value">$6.9M</div>
+            </div>
+            <div class="vendor-col">
+              <div class="label" style="color: var(--crimson);">IMMIGRANT</div>
+              <div class="value" style="color: var(--crimson);">$6.9M</div>
+            </div>
+          </div>
+          <div class="vendor-item">
+            <div class="vendor-pct med">54.5%</div>
+            <div>
+              <div class="vendor-name">United Way of MA Bay</div>
+              <div class="vendor-desc">Family Shelter Reserve services</div>
+            </div>
+            <div class="vendor-col">
+              <div class="label">TOTAL</div>
+              <div class="value">$11.0M</div>
+            </div>
+            <div class="vendor-col">
+              <div class="label" style="color: var(--crimson);">IMMIGRANT</div>
+              <div class="value" style="color: var(--crimson);">$6.0M</div>
+            </div>
+          </div>
+          <div class="vendor-item">
+            <div class="vendor-pct med">47.1%</div>
+            <div>
+              <div class="vendor-name">Pine Street Inn</div>
+              <div class="vendor-desc">Emergency shelter grant operations</div>
+            </div>
+            <div class="vendor-col">
+              <div class="label">TOTAL</div>
+              <div class="value">$14.8M</div>
+            </div>
+            <div class="vendor-col">
+              <div class="label" style="color: var(--crimson);">IMMIGRANT</div>
+              <div class="value" style="color: var(--crimson);">$6.9M</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ORGANIZATIONS -->
+      <div class="panel" id="orgs">
+        <h2 class="section-title">Immigrant-Named Vendors</h2>
+        <p class="section-desc">28 organizations totaling $228.6M — 67% is MassHealth billing, not actual immigrant programs</p>
+        
+        <div class="org-grid">
+          <div class="org-card">
+            <div class="org-header">
+              <div>
+                <div class="org-name">East Boston Neighborhood Health</div>
+                <span class="org-type health">Health Center</span>
+              </div>
+              <div class="org-amount">$59.2M</div>
+            </div>
+            <div class="org-footer">
+              <span>MassHealth Billing</span>
+              <span style="font-weight: 700;">72%</span>
+            </div>
+          </div>
+          <div class="org-card">
+            <div class="org-header">
+              <div>
+                <div class="org-name">Brockton Neighborhood Health</div>
+                <span class="org-type health">Health Center</span>
+              </div>
+              <div class="org-amount">$58.6M</div>
+            </div>
+            <div class="org-footer">
+              <span>MassHealth Billing</span>
+              <span style="font-weight: 700;">80%</span>
+            </div>
+          </div>
+          <div class="org-card">
+            <div class="org-header">
+              <div>
+                <div class="org-name">NeighborHealth Corp</div>
+                <span class="org-type health">Health Center</span>
+              </div>
+              <div class="org-amount">$45.4M</div>
+            </div>
+            <div class="org-footer">
+              <span>MassHealth Billing</span>
+              <span style="font-weight: 700;">95%</span>
+            </div>
+          </div>
+          <div class="org-card">
+            <div class="org-header">
+              <div>
+                <div class="org-name">RIAC</div>
+                <span class="org-type refugee">Refugee Services</span>
+              </div>
+              <div class="org-amount">$17.1M</div>
+            </div>
+            <div class="org-footer program">
+              <span>100% Actual Programs</span>
+              <span style="font-weight: 700;">✓</span>
+            </div>
+          </div>
+          <div class="org-card">
+            <div class="org-header">
+              <div>
+                <div class="org-name">IFSI</div>
+                <span class="org-type refugee">Immigrant Services</span>
+              </div>
+              <div class="org-amount">$14.5M</div>
+            </div>
+            <div class="org-footer program">
+              <span>100% Actual Programs</span>
+              <span style="font-weight: 700;">✓</span>
+            </div>
+          </div>
+          <div class="org-card featured">
+            <div class="org-header">
+              <div>
+                <div class="org-name">MIRA Coalition</div>
+                <span class="org-type advocacy">ADVOCACY + LOBBYING</span>
+              </div>
+              <div class="org-amount" style="color: var(--crimson);">$7.66M</div>
+            </div>
+            <div class="org-footer program">
+              <span>100% Actual Programs</span>
+              <span style="font-weight: 700;">✓</span>
+            </div>
+          </div>
+          <div class="org-card">
+            <div class="org-header">
+              <div>
+                <div class="org-name">ORIS</div>
+                <span class="org-type refugee">Refugee Services</span>
+              </div>
+              <div class="org-amount">$4.3M</div>
+            </div>
+            <div class="org-footer program">
+              <span>100% Actual Programs</span>
+              <span style="font-weight: 700;">✓</span>
+            </div>
+          </div>
+          <div class="org-card">
+            <div class="org-header">
+              <div>
+                <div class="org-name">Project Citizenship</div>
+                <span class="org-type refugee">Citizenship</span>
+              </div>
+              <div class="org-amount">$1.9M</div>
+            </div>
+            <div class="org-footer program">
+              <span>100% Actual Programs</span>
+              <span style="font-weight: 700;">✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MIRA -->
+      <div class="panel" id="mira">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px;">
+          <div>
+            <h2 class="section-title">MIRA Coalition</h2>
+            <p class="section-desc" style="margin-bottom: 0;">Massachusetts Immigrant & Refugee Advocacy Coalition</p>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700; color: var(--teal);">$7,662,233</div>
+            <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; color: var(--crimson);">+ $87,548 Lobbying</div>
+          </div>
+        </div>
+
+        <div class="conflict-box">
+          <div class="conflict-label">THE CONFLICT OF INTEREST</div>
+          <p>MIRA lobbies the same agencies that give them contracts. FY25 contracts ($4.2M) increased <strong>16×</strong> from FY20 ($256K) during the same period they spent $87K lobbying. They're paid to advocate for more of the policies that created this crisis.</p>
+        </div>
+
+        <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 18px; margin-bottom: 16px;">What They're Paid To Do</h3>
+        <div class="card" style="margin-bottom: 28px;">
+          <div class="data-row">
+            <div>
+              <div class="data-label">Family Shelter Services</div>
+              <div class="data-desc">Case management for immigrant families in shelters</div>
+            </div>
+            <div class="data-value gold">$3,976,026</div>
+          </div>
+          <div class="data-row">
+            <div>
+              <div class="data-label">Immigrants Housing Reserve</div>
+              <div class="data-desc">Housing placement and rental assistance</div>
+            </div>
+            <div class="data-value gold">$1,296,000</div>
+          </div>
+          <div class="data-row">
+            <div>
+              <div class="data-label">Immigration Legal Assistance</div>
+              <div class="data-desc">Legal representation, deportation defense</div>
+            </div>
+            <div class="data-value gold">$930,314</div>
+          </div>
+          <div class="data-row">
+            <div>
+              <div class="data-label">Low-Income Citizenship</div>
+              <div class="data-desc">Citizenship applications, forms, fees, classes</div>
+            </div>
+            <div class="data-value gold">$803,799</div>
+          </div>
+          <div class="data-row">
+            <div>
+              <div class="data-label">Immigrants Supports Reserve</div>
+              <div class="data-desc">Translation, job placement, benefits enrollment</div>
+            </div>
+            <div class="data-value gold">$474,095</div>
+          </div>
+        </div>
+
+        <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 18px; margin-bottom: 16px;">Registered Lobbyists</h3>
+        <div class="lobbyist-grid">
+          <div class="lobbyist-card">
+            <div>
+              <div class="lobbyist-name">Amy M. Grunder</div>
+              <div class="lobbyist-years">2022–2025</div>
+            </div>
+            <div class="lobbyist-amount">$61,132</div>
+          </div>
+          <div class="lobbyist-card">
+            <div>
+              <div class="lobbyist-name">Charles Group Consulting</div>
+              <div class="lobbyist-years">2022</div>
+            </div>
+            <div class="lobbyist-amount">$20,000</div>
+          </div>
+          <div class="lobbyist-card">
+            <div>
+              <div class="lobbyist-name">Edwin Jonathan Paz</div>
+              <div class="lobbyist-years">2023</div>
+            </div>
+            <div class="lobbyist-amount">$4,626</div>
+          </div>
+          <div class="lobbyist-card">
+            <div>
+              <div class="lobbyist-name">Elizabeth Sweet</div>
+              <div class="lobbyist-years">2025</div>
+            </div>
+            <div class="lobbyist-amount">$1,790</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACLU -->
+      <div class="panel" id="aclu">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px;">
+          <div>
+            <h2 class="section-title">ACLU Employees → MA Politicians</h2>
+            <p class="section-desc" style="margin-bottom: 0;">519 donations to politicians controlling budgets and immigration policy</p>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700; color: var(--navy);">$59,185</div>
+            <div style="font-size: 13px; color: var(--gray-500);">519 donations</div>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <p>Donations spiked <strong style="color: var(--crimson);">14×</strong> from 2019 ($825) to 2022 ($11,616) during the migrant influx. ACLU employees fund the politicians who control state budgets, immigration enforcement, and prosecution decisions.</p>
+        </div>
+
+        <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 18px; margin-bottom: 16px;">Power Brokers They Fund</h3>
+        <div class="power-list">
+          <div class="power-item">
+            <div>
+              <div class="power-name">Michelle Wu</div>
+              <div class="power-role">BOSTON MAYOR (SANCTUARY CITY)</div>
+            </div>
+            <div class="power-stats">
+              <div class="power-amount">$3,215</div>
+              <div class="power-count">98 donations</div>
+            </div>
+          </div>
+          <div class="power-item">
+            <div>
+              <div class="power-name">Maura Healey</div>
+              <div class="power-role">GOVERNOR</div>
+            </div>
+            <div class="power-stats">
+              <div class="power-amount">$2,370</div>
+              <div class="power-count">16 donations</div>
+            </div>
+          </div>
+          <div class="power-item">
+            <div>
+              <div class="power-name">Andrea Campbell</div>
+              <div class="power-role">ATTORNEY GENERAL</div>
+            </div>
+            <div class="power-stats">
+              <div class="power-amount">$1,775</div>
+              <div class="power-count">10 donations</div>
+            </div>
+          </div>
+          <div class="power-item">
+            <div>
+              <div class="power-name">Aaron Michlewitz</div>
+              <div class="power-role">HOUSE WAYS & MEANS CHAIR</div>
+            </div>
+            <div class="power-stats">
+              <div class="power-amount">$1,550</div>
+              <div class="power-count">9 donations</div>
+            </div>
+          </div>
+          <div class="power-item">
+            <div>
+              <div class="power-name">Karen Spilka</div>
+              <div class="power-role">SENATE PRESIDENT</div>
+            </div>
+            <div class="power-stats">
+              <div class="power-amount">$1,200</div>
+              <div class="power-count">6 donations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div><strong>Sources:</strong> MA State Checkbook ($2.47B), Boston Herald, MA Executive Office of Housing, Center for Immigration Studies, OCPF, Secretary of State, Congressional Budget Office, FAIR | <strong>56,374 data points analyzed</strong></div>
+      <div class="footer-row">
+        <span>Checkbook data through FY25 | State reports through June 2025</span>
+        <a href="https://github.com/duncanburns2013-dot/The-Invasion">github.com/duncanburns2013-dot/The-Invasion</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
