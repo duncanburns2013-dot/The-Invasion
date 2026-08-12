@@ -177,7 +177,12 @@
     .tabs {
       display: flex;
       gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab { flex: 0 0 auto; white-space: nowrap; }
     
     .tab {
       padding: 16px 24px;
@@ -798,6 +803,209 @@
       .tabs { overflow-x: auto; }
       .tab { padding: 14px 16px; white-space: nowrap; }
     }
+    /* ============ INTERACTIVE: shared ============ */
+    .interactive-note {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .interactive-note::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 0 rgba(201,162,39,.7);
+      animation: pulse 2.4s infinite;
+    }
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 9px rgba(201,162,39,0); }
+      100% { box-shadow: 0 0 0 0 rgba(201,162,39,0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .interactive-note::before { animation: none; }
+      .shift-bar rect, .calc-fill { transition: none !important; }
+    }
+
+    /* ============ THE SHIFT CHART ============ */
+    .shift-wrap {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-top: 4px solid var(--gold);
+      padding: 24px 26px 20px;
+      margin-bottom: 28px;
+    }
+    .shift-head {
+      display: flex; flex-wrap: wrap; gap: 14px;
+      justify-content: space-between; align-items: flex-end;
+      margin-bottom: 18px;
+    }
+    .shift-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px; font-weight: 700;
+    }
+    .shift-modes { display: flex; gap: 0; border: 1px solid var(--gray-300); }
+    .shift-mode {
+      background: #fff; border: 0; cursor: pointer;
+      font-family: inherit; font-size: 12px; font-weight: 700;
+      letter-spacing: 1px; padding: 8px 14px; color: var(--gray-700);
+      transition: background .15s, color .15s;
+    }
+    .shift-mode + .shift-mode { border-left: 1px solid var(--gray-300); }
+    .shift-mode.active { background: var(--navy); color: var(--cream); }
+    .shift-mode:hover:not(.active) { background: var(--gray-100); }
+    .shift-svg { width: 100%; height: auto; display: block; overflow: visible; }
+    .shift-bar rect { transition: y .5s cubic-bezier(.4,0,.2,1), height .5s cubic-bezier(.4,0,.2,1); cursor: pointer; }
+    .shift-bar:hover rect { opacity: .82; }
+    .shift-axis { font-size: 11px; fill: var(--gray-500); font-weight: 600; }
+    .shift-fyLabel { font-size: 12px; fill: var(--navy); font-weight: 700; }
+    .shift-total { font-size: 11px; fill: var(--gray-700); font-weight: 700; }
+    .shift-legend { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px; font-size: 13px; }
+    .shift-legend span { display: flex; align-items: center; gap: 7px; font-weight: 600; }
+    .shift-key { width: 13px; height: 13px; display: inline-block; }
+    .shift-tip {
+      position: fixed; pointer-events: none; z-index: 60;
+      background: var(--navy); color: var(--cream);
+      padding: 10px 13px; font-size: 13px; line-height: 1.45;
+      box-shadow: 0 8px 24px rgba(26,39,68,.28);
+      opacity: 0; transition: opacity .12s; max-width: 260px;
+    }
+    .shift-tip strong { color: var(--gold); }
+    .shift-tip.on { opacity: 1; }
+    .shift-caption { font-size: 13px; color: var(--gray-700); margin-top: 12px; font-style: italic; }
+
+    /* ============ YOUR SHARE CALCULATOR ============ */
+    .calc {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: var(--cream); padding: 30px 32px; margin-bottom: 28px;
+      position: relative; overflow: hidden;
+    }
+    .calc::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--crimson), var(--gold), var(--crimson));
+    }
+    .calc h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 24px; margin-bottom: 6px;
+    }
+    .calc-sub { font-size: 14px; color: rgba(255,253,249,.7); margin-bottom: 22px; }
+    .calc-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 34px; align-items: center; }
+    .calc-field { margin-bottom: 20px; }
+    .calc-label {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-size: 12px; letter-spacing: 1.2px; font-weight: 700;
+      text-transform: uppercase; color: rgba(255,253,249,.65); margin-bottom: 9px;
+    }
+    .calc-label b { font-size: 17px; color: var(--gold); letter-spacing: 0; }
+    .calc-range { -webkit-appearance: none; appearance: none; width: 100%; height: 5px; background: rgba(255,253,249,.2); outline: none; }
+    .calc-range::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none; width: 22px; height: 22px;
+      background: var(--gold); cursor: pointer; border: 3px solid var(--navy);
+      box-shadow: 0 0 0 1px var(--gold);
+    }
+    .calc-range::-moz-range-thumb {
+      width: 22px; height: 22px; background: var(--gold); cursor: pointer;
+      border: 3px solid var(--navy); box-shadow: 0 0 0 1px var(--gold);
+    }
+    .calc-seg { display: flex; border: 1px solid rgba(255,253,249,.28); }
+    .calc-seg button {
+      flex: 1; background: transparent; border: 0; color: rgba(255,253,249,.72);
+      font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: .8px;
+      padding: 9px 4px; cursor: pointer; transition: background .15s, color .15s;
+    }
+    .calc-seg button + button { border-left: 1px solid rgba(255,253,249,.28); }
+    .calc-seg button.active { background: var(--gold); color: var(--navy); }
+    .calc-out { text-align: center; border-left: 1px solid rgba(255,253,249,.18); padding-left: 30px; }
+    .calc-big {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 62px; font-weight: 800; color: var(--gold); line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .calc-cap { font-size: 11px; letter-spacing: 2px; font-weight: 700; color: rgba(255,253,249,.6); margin-top: 8px; text-transform: uppercase; }
+    .calc-break { margin-top: 20px; font-size: 13px; }
+    .calc-break div { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,253,249,.12); }
+    .calc-break span:last-child { font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+    .calc-foot { font-size: 12px; color: rgba(255,253,249,.55); margin-top: 18px; line-height: 1.5; }
+
+    /* ============ DATA EXPLORER ============ */
+    .exp-controls {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 12px;
+      background: #fff; border: 1px solid var(--gray-200); padding: 18px; margin-bottom: 18px;
+    }
+    .exp-controls label {
+      display: block; font-size: 10px; letter-spacing: 1.3px; font-weight: 700;
+      text-transform: uppercase; color: var(--gray-500); margin-bottom: 6px;
+    }
+    .exp-controls input, .exp-controls select {
+      width: 100%; padding: 9px 11px; font-family: inherit; font-size: 14px;
+      border: 1px solid var(--gray-300); background: var(--warm-white); color: var(--navy);
+    }
+    .exp-controls input:focus, .exp-controls select:focus { outline: 2px solid var(--gold); outline-offset: -1px; }
+    .exp-summary {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: var(--gray-200); border: 1px solid var(--gray-200); margin-bottom: 18px;
+    }
+    .exp-summary div { background: #fff; padding: 14px 16px; }
+    .exp-summary .k { font-size: 10px; letter-spacing: 1.3px; font-weight: 700; color: var(--gray-500); text-transform: uppercase; }
+    .exp-summary .v { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 700; margin-top: 3px; font-variant-numeric: tabular-nums; }
+    .exp-table-wrap { overflow-x: auto; border: 1px solid var(--gray-200); background: #fff; }
+    table.exp { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 760px; }
+    table.exp th {
+      text-align: left; background: var(--navy); color: var(--cream);
+      font-size: 10.5px; letter-spacing: 1.2px; text-transform: uppercase;
+      padding: 11px 12px; cursor: pointer; user-select: none; white-space: nowrap;
+      position: sticky; top: 0;
+    }
+    table.exp th:hover { background: var(--navy-light); }
+    table.exp th .arr { color: var(--gold); margin-left: 5px; }
+    table.exp td { padding: 10px 12px; border-bottom: 1px solid var(--gray-100); vertical-align: top; }
+    table.exp tbody tr:hover { background: var(--warm-white); }
+    table.exp td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
+    .tier-pill {
+      display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .6px;
+      padding: 3px 8px; white-space: nowrap; text-transform: uppercase;
+    }
+    .tier-0 { background: #e6efe6; color: #1f5f1f; }
+    .tier-1 { background: #fdf1d8; color: var(--gold-dark); }
+    .tier-2 { background: #e6eef5; color: #1a4d7a; }
+    .tier-3 { background: #f7e2e2; color: var(--crimson); }
+    .exp-pager { display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-top: 14px; font-size: 13px; }
+    .exp-pager button {
+      font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 1px;
+      padding: 8px 16px; border: 1px solid var(--gray-300); background: #fff;
+      color: var(--navy); cursor: pointer;
+    }
+    .exp-pager button:disabled { opacity: .35; cursor: default; }
+    .exp-pager button:not(:disabled):hover { background: var(--navy); color: var(--cream); }
+    .exp-empty { padding: 40px; text-align: center; color: var(--gray-500); }
+    .exp-loading { padding: 40px; text-align: center; color: var(--gray-500); font-style: italic; }
+
+    /* ============ EVIDENCE TIER BAR ============ */
+    .evid { background: #fff; border: 1px solid var(--gray-200); padding: 24px 26px; margin-bottom: 26px; }
+    .evid-bar { display: flex; height: 42px; margin: 16px 0 12px; border: 1px solid var(--gray-200); }
+    .evid-seg { position: relative; cursor: default; transition: filter .15s; }
+    .evid-seg:hover { filter: brightness(1.12); }
+    .evid-seg span {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.35);
+    }
+    .evid-key { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 22px; font-size: 13px; margin-top: 14px; }
+    .evid-key div { display: flex; gap: 9px; align-items: flex-start; }
+    .evid-key i { width: 12px; height: 12px; flex: 0 0 12px; margin-top: 4px; }
+
+    @media (max-width: 860px) {
+      .calc-grid { grid-template-columns: 1fr; gap: 22px; }
+      .calc-out { border-left: 0; border-top: 1px solid rgba(255,253,249,.18); padding-left: 0; padding-top: 22px; }
+      .exp-controls { grid-template-columns: 1fr 1fr; }
+      .exp-summary { grid-template-columns: 1fr 1fr; }
+      .evid-key { grid-template-columns: 1fr; }
+      .calc-big { font-size: 50px; }
+    }
   </style>
 </head>
 <body>
@@ -845,6 +1053,7 @@
     <div class="container">
       <div class="tabs">
         <button class="tab active" data-tab="overview">Overview</button>
+        <button class="tab" data-tab="explorer">Explore the Data</button>
         <button class="tab" data-tab="comparison">State Comparison</button>
         <button class="tab" data-tab="vendors">Vendors</button>
         <button class="tab" data-tab="orgs">Organizations</button>
@@ -875,6 +1084,66 @@
             <div class="callout-small">was $12M in 2022</div>
             <div class="callout-label">+718%</div>
           </div>
+        </div>
+
+        <!-- INTERACTIVE: THE SHIFT CHART -->
+        <div class="shift-wrap">
+          <div class="interactive-note">Interactive — click a mode, hover any bar</div>
+          <div class="shift-head">
+            <div>
+              <div class="shift-title">Where the Housing Money Goes, FY22 → FY27</div>
+            </div>
+            <div class="shift-modes" role="group" aria-label="Chart mode">
+              <button class="shift-mode active" data-mode="dollars">DOLLARS</button>
+              <button class="shift-mode" data-mode="share">SHARE %</button>
+              <button class="shift-mode" data-mode="index">INDEXED</button>
+            </div>
+          </div>
+          <svg class="shift-svg" viewBox="0 0 900 340" role="img"
+               aria-label="Stacked bar chart of Massachusetts emergency shelter and HomeBASE rental assistance spending, fiscal years 2022 to 2027"></svg>
+          <div class="shift-legend">
+            <span><i class="shift-key" style="background:#9c1b1f"></i>Emergency Assistance shelter (7004-0101)</span>
+            <span><i class="shift-key" style="background:#c9a227"></i>HomeBASE rental assistance (7004-0108)</span>
+          </div>
+          <p class="shift-caption">FY22–FY25 are actual spending; FY26–FY27 are enacted appropriations. Shelter spending has fallen steeply as the caseload dropped — but <strong>Share&nbsp;%</strong> shows HomeBASE taking a growing slice of what remains, and <strong>Indexed</strong> shows the two lines moving in opposite directions from the same FY22 baseline.</p>
+        </div>
+
+        <!-- INTERACTIVE: YOUR SHARE CALCULATOR -->
+        <div class="calc">
+          <div class="interactive-note" style="color:var(--gold)">Interactive — move the sliders</div>
+          <h3>What It Costs Your Household</h3>
+          <p class="calc-sub">Massachusetts funds this out of the same income tax you pay. Set your numbers to see your share.</p>
+          <div class="calc-grid">
+            <div>
+              <div class="calc-field">
+                <div class="calc-label"><span>Household taxable income</span><b id="calcIncomeOut">$120,000</b></div>
+                <input class="calc-range" type="range" id="calcIncome" min="25000" max="500000" step="5000" value="120000"
+                       aria-label="Household taxable income">
+              </div>
+              <div class="calc-field">
+                <div class="calc-label"><span>Which cost estimate?</span></div>
+                <div class="calc-seg" role="group" aria-label="Cost basis">
+                  <button data-basis="core" class="active">DOCUMENTED</button>
+                  <button data-basis="full">FULL ESTIMATE</button>
+                </div>
+              </div>
+              <div class="calc-field">
+                <div class="calc-label"><span>Over how many years?</span><b id="calcYearsOut">1 year</b></div>
+                <input class="calc-range" type="range" id="calcYears" min="1" max="10" step="1" value="1"
+                       aria-label="Number of years">
+              </div>
+            </div>
+            <div class="calc-out">
+              <div class="calc-big" id="calcBig">$0</div>
+              <div class="calc-cap" id="calcCap">Your share</div>
+              <div class="calc-break">
+                <div><span>Your share of state income tax</span><span id="calcPctTax">—</span></div>
+                <div><span>Equivalent in work hours</span><span id="calcHours">—</span></div>
+                <div><span>Statewide total used</span><span id="calcTotal">—</span></div>
+              </div>
+            </div>
+          </div>
+          <p class="calc-foot" id="calcFoot"></p>
         </div>
 
         <div class="grid-2">
@@ -1089,6 +1358,94 @@
       </div>
 
       <!-- STATE COMPARISON -->
+      <!-- EXPLORER -->
+      <div class="panel" id="explorer">
+        <h2 class="section-title">Explore the Raw Payments</h2>
+        <p class="section-desc">Every payment below is a real line from the Massachusetts state payment record — <strong>8,883 transactions</strong> to the 28 vendors caught by the immigrant/refugee name filter, October 2019 through February 2026. Nothing here is summarised or estimated. Search it, sort it, and check the totals yourself.</p>
+
+        <!-- EVIDENCE TIERS -->
+        <div class="evid">
+          <div class="interactive-note">Read this first</div>
+          <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:19px;margin-bottom:6px;">Not all $228.6M is immigrant spending</h3>
+          <p style="font-size:14px;color:var(--gray-700);">The vendor list was built by matching names against strings like <em>IMMIGRANT</em>, <em>REFUGEE</em>, <em>MIRA</em> and <em>NEIGHBOR</em>. That match is broad, and it swept in community health centres and unrelated businesses. Sorting the payments by what the appropriation actually funds gives a much smaller — and much harder to argue with — number.</p>
+          <div class="evid-bar" id="evidBar"></div>
+          <div class="evid-key">
+            <div><i style="background:#2f7d32"></i><span><strong>Immigrant/refugee programs</strong> — Office for Refugees &amp; Immigrants, citizenship, resettlement, Afghan refugee services.</span></div>
+            <div><i style="background:#c9a227"></i><span><strong>Family shelter &amp; housing reserves</strong> — shelter and immigrant housing reserve line items.</span></div>
+            <div><i style="background:#2f6ea5"></i><span><strong>MassHealth claims</strong> — community health centres billing for all patients. Largest single line is <em>MassHealth Senior Care</em>.</span></div>
+            <div><i style="background:#9c1b1f"></i><span><strong>Name-match false positives</strong> — a dentist, a daycare and individuals whose names contain "MIRA".</span></div>
+          </div>
+          <p style="font-size:14px;margin-top:16px;padding-top:14px;border-top:1px solid var(--gray-200);">
+            <strong>Bottom line:</strong> <span id="evidCore">—</span> of the $228.6M is spending on identifiable immigrant, refugee or shelter programs. The rest is ordinary healthcare billing and filter noise. Use the <strong>Category</strong> filter below to isolate each tier.
+          </p>
+        </div>
+
+        <div class="exp-controls">
+          <div>
+            <label for="expSearch">Search vendor, program or city</label>
+            <input type="search" id="expSearch" placeholder="e.g. MIRA, citizenship, Brockton…" autocomplete="off">
+          </div>
+          <div>
+            <label for="expTier">Category</label>
+            <select id="expTier">
+              <option value="">All categories</option>
+              <option value="0">Immigrant/refugee program</option>
+              <option value="1">Shelter &amp; housing reserve</option>
+              <option value="2">MassHealth / health centre</option>
+              <option value="3">Name-match false positive</option>
+            </select>
+          </div>
+          <div>
+            <label for="expFy">Fiscal year</label>
+            <select id="expFy"><option value="">All years</option></select>
+          </div>
+          <div>
+            <label for="expMin">Minimum amount</label>
+            <select id="expMin">
+              <option value="0">Any amount</option>
+              <option value="1000">$1,000+</option>
+              <option value="10000">$10,000+</option>
+              <option value="100000">$100,000+</option>
+              <option value="1000000">$1,000,000+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="exp-summary">
+          <div><div class="k">Payments shown</div><div class="v" id="sumCount">—</div></div>
+          <div><div class="k">Total value</div><div class="v" id="sumTotal" style="color:var(--crimson)">—</div></div>
+          <div><div class="k">Vendors</div><div class="v" id="sumVendors">—</div></div>
+          <div><div class="k">Largest single payment</div><div class="v" id="sumMax" style="color:var(--gold-dark)">—</div></div>
+        </div>
+
+        <div class="exp-table-wrap">
+          <table class="exp">
+            <thead>
+              <tr>
+                <th data-sort="date">Date<span class="arr"></span></th>
+                <th data-sort="vendor">Vendor<span class="arr"></span></th>
+                <th data-sort="approp">Appropriation / program<span class="arr"></span></th>
+                <th data-sort="tier">Category<span class="arr"></span></th>
+                <th data-sort="fy">FY<span class="arr"></span></th>
+                <th data-sort="amount" style="text-align:right">Amount<span class="arr">▼</span></th>
+              </tr>
+            </thead>
+            <tbody id="expBody">
+              <tr><td colspan="6" class="exp-loading">Loading 8,883 payments…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="exp-pager">
+          <button id="expPrev" disabled>← PREV</button>
+          <span id="expPageInfo">—</span>
+          <button id="expNext">NEXT →</button>
+        </div>
+        <p style="font-size:13px;color:var(--gray-700);margin-top:18px;font-style:italic;">
+          Source: Massachusetts statewide payment records (CTHRU), Executive Office of Health &amp; Human Services, filtered by vendor name. Totals recomputed in your browser from
+          <a href="https://github.com/duncanburns2013-dot/The-Invasion/blob/main/immigrant_orgs_FILTERED.csv" style="color:var(--crimson)">the same CSV published in this repo</a> — no figures are hard-coded on this tab.
+        </p>
+      </div>
+
       <div class="panel" id="comparison">
         <h2 class="section-title">How Massachusetts Compares</h2>
         <p class="section-desc">State and local costs from illegal immigration (CBO, FAIR 2023). Massachusetts is one of four states bearing the heaviest shelter burden.</p>
@@ -1282,7 +1639,7 @@
       <!-- ORGANIZATIONS -->
       <div class="panel" id="orgs">
         <h2 class="section-title">Immigrant-Named Vendors</h2>
-        <p class="section-desc">28 organizations totaling $228.6M — 67% is MassHealth billing, not actual immigrant programs</p>
+        <p class="section-desc">28 organizations totaling $228.6M. Recomputed from the payment records, <strong>$46.8M (20.5%)</strong> funds identifiable immigrant, refugee or shelter programs; the remaining 79.5% is MassHealth billing by community health centres plus vendors caught by the name filter in error. See <a href="#explorer" class="tab-link" data-tab="explorer" style="color:var(--crimson)">Explore the Data</a> for the full breakdown.</p>
         
         <div class="org-grid">
           <div class="org-card">
@@ -1594,15 +1951,350 @@
     </div>
   </footer>
 
+  <div class="shift-tip" id="shiftTip" role="status"></div>
+
   <script>
-    document.querySelectorAll('.tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
+  (function () {
+    'use strict';
+
+    /* ---------------- TABS (deep-linkable) ---------------- */
+    var tabs = document.querySelectorAll('.tab');
+    function show(name) {
+      var panel = document.getElementById(name);
+      if (!panel) return;
+      tabs.forEach(function (t) { t.classList.toggle('active', t.dataset.tab === name); });
+      document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('active'); });
+      panel.classList.add('active');
+      if (name === 'explorer') loadExplorer();
+    }
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        show(tab.dataset.tab);
+        history.replaceState(null, '', '#' + tab.dataset.tab);
       });
     });
+    if (location.hash) show(location.hash.slice(1));
+    document.querySelectorAll('.tab-link').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        show(a.dataset.tab);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    var fmt = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+    var fmtM = function (n) {
+      if (n >= 1000) return '$' + (n / 1000).toFixed(2).replace(/\.?0+$/, '') + 'B';
+      return '$' + Math.round(n) + 'M';
+    };
+
+    /* ---------------- THE SHIFT CHART ---------------- */
+    // $ millions. FY22-25 actual spending; FY26-27 enacted appropriations.
+    var SHIFT = [
+      { fy: 'FY22', shelter: 150,  home: 12,   kind: 'actual',  note: 'Pre-surge baseline' },
+      { fy: 'FY23', shelter: 350,  home: 26,   kind: 'actual',  note: 'Surge begins; families enter shelter' },
+      { fy: 'FY24', shelter: 856,  home: 37,   kind: 'actual',  note: 'Peak shelter spending' },
+      { fy: 'FY25', shelter: 1060, home: 101,  kind: 'actual',  note: 'Hotel shelters closed; HomeBASE absorbs exits' },
+      { fy: 'FY26', shelter: 276,  home: 57,   kind: 'enacted', note: 'Caseload capped; shelter budget cut' },
+      { fy: 'FY27', shelter: 259.9,home: 82.3, kind: 'enacted', note: 'Shelter down 6%, HomeBASE up 44%' }
+    ];
+    var C_SHELTER = '#9c1b1f', C_HOME = '#c9a227';
+    var svg = document.querySelector('.shift-svg');
+    var tip = document.getElementById('shiftTip');
+    var mode = 'dollars';
+
+    function ns(tag, attrs) {
+      var el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+      for (var k in attrs) el.setAttribute(k, attrs[k]);
+      return el;
+    }
+
+    function drawShift() {
+      if (!svg) return;
+      svg.textContent = '';
+      var W = 900, H = 340, padL = 58, padR = 16, padB = 54, padT = 18;
+      var plotW = W - padL - padR, plotH = H - padT - padB;
+      var bw = Math.min(76, plotW / SHIFT.length - 26);
+      var step = plotW / SHIFT.length;
+
+      var vals = SHIFT.map(function (d) {
+        if (mode === 'share') return { a: d.shelter, b: d.home, tot: d.shelter + d.home };
+        if (mode === 'index') {
+          return { a: d.shelter / SHIFT[0].shelter * 100, b: d.home / SHIFT[0].home * 100, tot: 0 };
+        }
+        return { a: d.shelter, b: d.home, tot: d.shelter + d.home };
+      });
+
+      var max;
+      if (mode === 'share') max = 100;
+      else if (mode === 'index') max = Math.max.apply(null, vals.map(function (v) { return Math.max(v.a, v.b); })) * 1.08;
+      else max = Math.max.apply(null, vals.map(function (v) { return v.tot; })) * 1.08;
+
+      var y = function (v) { return padT + plotH - (v / max) * plotH; };
+
+      // gridlines
+      for (var g = 0; g <= 4; g++) {
+        var gv = max / 4 * g;
+        var gy = y(gv);
+        svg.appendChild(ns('line', { x1: padL, x2: W - padR, y1: gy, y2: gy, stroke: '#e8e6e1', 'stroke-width': 1 }));
+        var lab = ns('text', { x: padL - 10, y: gy + 4, 'text-anchor': 'end', class: 'shift-axis' });
+        lab.textContent = mode === 'share' ? Math.round(gv) + '%'
+                        : mode === 'index' ? Math.round(gv)
+                        : (gv >= 1000 ? '$' + (gv / 1000).toFixed(1) + 'B' : '$' + Math.round(gv) + 'M');
+        svg.appendChild(lab);
+      }
+
+      SHIFT.forEach(function (d, i) {
+        var v = vals[i];
+        var cx = padL + step * i + step / 2;
+        var g = ns('g', { class: 'shift-bar' });
+
+        if (mode === 'index') {
+          // side-by-side bars
+          var hw = bw / 2 - 3;
+          [[v.a, C_SHELTER, -hw - 3], [v.b, C_HOME, 3]].forEach(function (p) {
+            g.appendChild(ns('rect', {
+              x: cx + p[2], y: y(p[0]), width: hw, height: Math.max(0, padT + plotH - y(p[0])), fill: p[1]
+            }));
+          });
+        } else {
+          var a = mode === 'share' ? v.a / v.tot * 100 : v.a;
+          var b = mode === 'share' ? v.b / v.tot * 100 : v.b;
+          g.appendChild(ns('rect', { x: cx - bw / 2, y: y(a), width: bw, height: Math.max(0, padT + plotH - y(a)), fill: C_SHELTER }));
+          g.appendChild(ns('rect', { x: cx - bw / 2, y: y(a + b), width: bw, height: Math.max(0, y(a) - y(a + b)), fill: C_HOME }));
+          var tot = ns('text', { x: cx, y: y(a + b) - 8, 'text-anchor': 'middle', class: 'shift-total' });
+          tot.textContent = mode === 'share' ? '' : fmtM(v.tot);
+          svg.appendChild(tot);
+        }
+
+        var fyl = ns('text', { x: cx, y: H - padB + 22, 'text-anchor': 'middle', class: 'shift-fyLabel' });
+        fyl.textContent = d.fy;
+        svg.appendChild(fyl);
+        var kind = ns('text', { x: cx, y: H - padB + 38, 'text-anchor': 'middle', class: 'shift-axis' });
+        kind.textContent = d.kind;
+        svg.appendChild(kind);
+
+        // hover target spanning the column
+        var hit = ns('rect', { x: cx - step / 2, y: padT, width: step, height: plotH, fill: 'transparent' });
+        g.appendChild(hit);
+        g.addEventListener('mousemove', function (e) {
+          tip.innerHTML = '<strong>' + d.fy + '</strong> · ' + d.kind + '<br>' +
+            'Shelter: <strong>' + fmtM(d.shelter) + '</strong><br>' +
+            'HomeBASE: <strong>' + fmtM(d.home) + '</strong><br>' +
+            '<span style="opacity:.75">' + d.note + '</span>';
+          tip.classList.add('on');
+          var w = tip.offsetWidth, h = tip.offsetHeight;
+          tip.style.left = Math.min(window.innerWidth - w - 12, Math.max(8, e.clientX + 14)) + 'px';
+          tip.style.top = Math.max(8, e.clientY - h - 12) + 'px';
+        });
+        g.addEventListener('mouseleave', function () { tip.classList.remove('on'); });
+        svg.appendChild(g);
+      });
+
+      svg.appendChild(ns('line', { x1: padL, x2: W - padR, y1: padT + plotH, y2: padT + plotH, stroke: '#1a2744', 'stroke-width': 1.5 }));
+    }
+
+    document.querySelectorAll('.shift-mode').forEach(function (b) {
+      b.addEventListener('click', function () {
+        document.querySelectorAll('.shift-mode').forEach(function (x) { x.classList.remove('active'); });
+        b.classList.add('active');
+        mode = b.dataset.mode;
+        drawShift();
+      });
+    });
+    drawShift();
+    window.addEventListener('resize', drawShift);
+
+    /* ---------------- YOUR SHARE CALCULATOR ---------------- */
+    // MA flat income tax 5%; surtax 4% above the millionaires-tax threshold is ignored.
+    var MA_TAX_RATE = 0.05;
+    var TOTALS = {
+      full: { amount: 1880, label: 'Full FY25 estimate ($1.88B)',
+              note: 'Includes Center for Immigration Studies estimates for K-12 education ($575M) and healthcare ($95M), which are modelled, not audited.' },
+      core: { amount: 1210, label: 'Documented spending ($1.21B)',
+              note: 'Emergency shelter ($1.06B) plus wraparound services ($150M) — the portion drawn from state reports and payment records rather than outside estimates.' }
+    };
+    var MA_INCOME_TAX_REVENUE = 23800; // $M, approx FY25 MA personal income tax collections
+    var basis = 'core';
+    var inc = document.getElementById('calcIncome');
+    var yrs = document.getElementById('calcYears');
+
+    function calc() {
+      if (!inc) return;
+      var income = +inc.value, years = +yrs.value;
+      var t = TOTALS[basis];
+      var myTax = income * MA_TAX_RATE;
+      var shareOfTax = t.amount / MA_INCOME_TAX_REVENUE;      // fraction of income tax that funds this
+      var mine = myTax * shareOfTax * years;
+      var hourly = income / 2080;
+
+      document.getElementById('calcIncomeOut').textContent = '$' + income.toLocaleString('en-US');
+      document.getElementById('calcYearsOut').textContent = years + (years === 1 ? ' year' : ' years');
+      document.getElementById('calcBig').textContent = fmt(mine);
+      document.getElementById('calcCap').textContent = years === 1 ? 'Your share, one year' : 'Your share over ' + years + ' years';
+      document.getElementById('calcPctTax').textContent = (shareOfTax * 100).toFixed(1) + '% of it';
+      document.getElementById('calcHours').textContent = (mine / hourly).toFixed(1) + ' hrs';
+      document.getElementById('calcTotal').textContent = t.label;
+      document.getElementById('calcFoot').textContent =
+        'Method: your Massachusetts income tax (5% flat) × the share of state income-tax revenue this spending represents (' +
+        fmtM(t.amount) + ' ÷ ~$23.8B collected), × years. ' + t.note +
+        ' This is an allocation of cost, not a line on your tax bill — the state funds programs from pooled revenue.';
+    }
+    if (inc) {
+      inc.addEventListener('input', calc);
+      yrs.addEventListener('input', calc);
+      document.querySelectorAll('.calc-seg button').forEach(function (b) {
+        b.addEventListener('click', function () {
+          document.querySelectorAll('.calc-seg button').forEach(function (x) { x.classList.remove('active'); });
+          b.classList.add('active');
+          basis = b.dataset.basis;
+          calc();
+        });
+      });
+      calc();
+    }
+
+    /* ---------------- DATA EXPLORER ---------------- */
+    var DATA = null, loading = false, rows = [], view = [];
+    var sortKey = 'amount', sortDir = -1, page = 0, PER = 50;
+    var TIER_NAME = ['Immigrant/refugee', 'Shelter reserve', 'MassHealth', 'False positive'];
+    var TIER_COLOR = ['#2f7d32', '#c9a227', '#2f6ea5', '#9c1b1f'];
+
+    function loadExplorer() {
+      if (DATA || loading) return;
+      loading = true;
+      fetch('data/payments.json')
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(function (j) {
+          DATA = j;
+          var c = j.cols, L = j.lookups;
+          for (var i = 0; i < c.m.length; i++) {
+            rows.push({
+              date: c.p[i], vendor: L.vendor[c.v[i]], approp: L.approp[c.a[i]],
+              dept: L.dept[c.d[i]], city: L.city[c.c[i]], fy: c.y[i],
+              tier: c.t[i], amount: c.m[i] / 100
+            });
+          }
+          var fySel = document.getElementById('expFy');
+          Array.from(new Set(rows.map(function (r) { return r.fy; }))).sort().forEach(function (f) {
+            var o = document.createElement('option'); o.value = f; o.textContent = 'FY' + f; fySel.appendChild(o);
+          });
+          drawEvidence();
+          apply();
+        })
+        .catch(function (e) {
+          document.getElementById('expBody').innerHTML =
+            '<tr><td colspan="6" class="exp-empty">Could not load the payment data (' + e.message +
+            ').<br>If you are opening this file directly from disk, run a local server — <code>python -m http.server</code> — so the browser can fetch it.</td></tr>';
+        })
+        .finally(function () { loading = false; });
+    }
+
+    function drawEvidence() {
+      var bar = document.getElementById('evidBar');
+      if (!bar) return;
+      var tot = rows.reduce(function (s, r) { return s + r.amount; }, 0);
+      var byTier = [0, 0, 0, 0];
+      rows.forEach(function (r) { byTier[r.tier] += r.amount; });
+      bar.innerHTML = '';
+      // draw largest first for a readable bar: MassHealth, immigrant, shelter, false-pos
+      [2, 0, 1, 3].forEach(function (t) {
+        var pct = byTier[t] / tot * 100;
+        var seg = document.createElement('div');
+        seg.className = 'evid-seg';
+        seg.style.cssText = 'width:' + pct + '%;background:' + TIER_COLOR[t];
+        seg.title = TIER_NAME[t] + ' — ' + fmt(byTier[t]) + ' (' + pct.toFixed(1) + '%)';
+        if (pct > 7) seg.innerHTML = '<span>' + pct.toFixed(1) + '%</span>';
+        bar.appendChild(seg);
+      });
+      var core = byTier[0] + byTier[1];
+      document.getElementById('evidCore').innerHTML =
+        '<strong style="color:var(--crimson)">' + fmt(core) + ' (' + (core / tot * 100).toFixed(1) + '%)</strong>';
+    }
+
+    function apply() {
+      var q = (document.getElementById('expSearch').value || '').trim().toLowerCase();
+      var tier = document.getElementById('expTier').value;
+      var fy = document.getElementById('expFy').value;
+      var min = +document.getElementById('expMin').value;
+
+      view = rows.filter(function (r) {
+        if (tier !== '' && r.tier !== +tier) return false;
+        if (fy !== '' && r.fy !== +fy) return false;
+        if (min > 0 && r.amount < min) return false;   // min 0 must keep reversals (negative rows)
+        if (q && (r.vendor + ' ' + r.approp + ' ' + r.city + ' ' + r.dept).toLowerCase().indexOf(q) === -1) return false;
+        return true;
+      });
+      view.sort(function (a, b) {
+        var x = a[sortKey], y = b[sortKey];
+        if (typeof x === 'string') return x.localeCompare(y) * sortDir;
+        return (x - y) * sortDir;
+      });
+      page = 0;
+      render();
+    }
+
+    function render() {
+      var tot = view.reduce(function (s, r) { return s + r.amount; }, 0);
+      var maxR = view.reduce(function (m, r) { return r.amount > m ? r.amount : m; }, 0);
+      document.getElementById('sumCount').textContent = view.length.toLocaleString('en-US');
+      document.getElementById('sumTotal').textContent = fmt(tot);
+      document.getElementById('sumVendors').textContent = new Set(view.map(function (r) { return r.vendor; })).size;
+      document.getElementById('sumMax').textContent = fmt(maxR);
+
+      var body = document.getElementById('expBody');
+      if (!view.length) {
+        body.innerHTML = '<tr><td colspan="6" class="exp-empty">No payments match those filters.</td></tr>';
+        document.getElementById('expPageInfo').textContent = '—';
+        document.getElementById('expPrev').disabled = true;
+        document.getElementById('expNext').disabled = true;
+        return;
+      }
+      var start = page * PER, slice = view.slice(start, start + PER);
+      body.innerHTML = slice.map(function (r) {
+        return '<tr>' +
+          '<td style="white-space:nowrap;color:var(--gray-700)">' + r.date + '</td>' +
+          '<td><strong>' + esc(r.vendor) + '</strong>' + (r.city ? '<br><span style="font-size:12px;color:var(--gray-500)">' + esc(r.city) + '</span>' : '') + '</td>' +
+          '<td style="font-size:12.5px;color:var(--gray-700)">' + esc(r.approp) + '</td>' +
+          '<td><span class="tier-pill tier-' + r.tier + '">' + TIER_NAME[r.tier] + '</span></td>' +
+          '<td>FY' + r.fy + '</td>' +
+          '<td class="num">' + fmt(r.amount) + '</td>' +
+          '</tr>';
+      }).join('');
+      var pages = Math.ceil(view.length / PER);
+      document.getElementById('expPageInfo').textContent =
+        'Showing ' + (start + 1).toLocaleString('en-US') + '–' + Math.min(start + PER, view.length).toLocaleString('en-US') +
+        ' of ' + view.length.toLocaleString('en-US') + ' (page ' + (page + 1) + ' of ' + pages + ')';
+      document.getElementById('expPrev').disabled = page === 0;
+      document.getElementById('expNext').disabled = page >= pages - 1;
+    }
+
+    function esc(s) {
+      return String(s).replace(/[&<>"]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+      });
+    }
+
+    ['expSearch', 'expTier', 'expFy', 'expMin'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', function () { if (DATA) apply(); });
+    });
+    document.querySelectorAll('table.exp th[data-sort]').forEach(function (th) {
+      th.addEventListener('click', function () {
+        var k = th.dataset.sort;
+        if (sortKey === k) sortDir *= -1; else { sortKey = k; sortDir = (k === 'amount' ? -1 : 1); }
+        document.querySelectorAll('table.exp th .arr').forEach(function (a) { a.textContent = ''; });
+        th.querySelector('.arr').textContent = sortDir === -1 ? '▼' : '▲';
+        if (DATA) apply();
+      });
+    });
+    var prev = document.getElementById('expPrev'), next = document.getElementById('expNext');
+    if (prev) prev.addEventListener('click', function () { if (page > 0) { page--; render(); window.scrollTo({ top: document.querySelector('.exp-table-wrap').offsetTop - 80, behavior: 'smooth' }); } });
+    if (next) next.addEventListener('click', function () { page++; render(); window.scrollTo({ top: document.querySelector('.exp-table-wrap').offsetTop - 80, behavior: 'smooth' }); });
+  })();
   </script>
 </body>
 </html>

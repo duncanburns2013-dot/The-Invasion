@@ -1,123 +1,173 @@
 # Massachusetts Immigrant Spending Audit
 
-**Live Dashboard:** [https://duncanburns2013-dot.github.io/The-Invasion/](https://duncanburns2013-dot.github.io/The-Invasion/)
+**Live dashboard:** https://duncanburns2013-dot.github.io/The-Invasion/
 
-**GitHub:** [https://github.com/duncanburns2013-dot/The-Invasion](https://github.com/duncanburns2013-dot/The-Invasion)
+A data-driven audit of Massachusetts taxpayer spending on shelter, rental assistance and
+immigrant services — built from state payment records, enacted budget line items and
+official shelter reports.
 
-A comprehensive data-driven analysis of Massachusetts taxpayer spending on immigrant services, shelter, education, and related programs.
+> **Last data review:** August 2026 · FY27 budget signed 9 July 2026 · payment records run
+> through February 2026.
 
-**56,374 lines of official government data analyzed.**
+---
 
-## Key Findings
+## The current story: the money moved, it didn't leave
 
-| Metric | Amount | Source |
-|--------|--------|--------|
-| **Total Annual Cost (FY25)** | $1.88 Billion | Combined sources |
-| **Cost Per Taxpayer/Year** | $537 | $1.88B ÷ 3.5M filers |
-| **Cost Per Household/Year** | $671 | $1.88B ÷ 2.8M households |
-| **Two-Year Total (FY24+FY25)** | $3.1 Billion | Combined sources |
+Emergency shelter spending has fallen sharply as the caseload dropped. At the same time,
+**HomeBASE** — the rental-assistance program that moves families *out* of shelter — has grown
+in the opposite direction.
 
-### Cost Breakdown by Category
+| Line item | FY26 enacted | FY27 enacted | Change |
+|---|---|---|---|
+| Emergency Assistance family shelter (7004-0101) | $276M | **$259.9M** | ↓ 6% |
+| HomeBASE (7004-0108) | ~$57M | **$82.3M** | ↑ 44% |
+| RAFT rental/mortgage aid (7004-9316) | — | $209M | — |
+| MRVP rental vouchers (7004-9024) | — | $278.3M | ↑ 10% |
 
-| Category | FY25 Amount | Source |
-|----------|-------------|--------|
-| Emergency Shelter System | $1.06B | MA Executive Office of Housing, Boston Herald |
-| Education (K-12) | $575M | CIS Study (25K students × $23K/student) |
-| Wraparound Services | $150M | State biweekly report (legal aid, case mgmt) |
-| Healthcare/MassHealth | $95M | CIS estimate ($3,800/person) |
+HomeBASE pays up to **$30,000 per family over two years**. Enrolment rose from roughly
+1,500 families in early 2023 to over 7,700 by 2025, and annual spending went from $12M to
+$101M — a **718% increase** — while the shelter budget was being cut.
 
-### Shelter Spending Trend
+Shelter caseload has fallen below 5,000 families (first time since July 2023) to roughly
+4,800 as of May 2026, and the state is shrinking the system toward ~3,200 units.
 
-| Fiscal Year | Amount | Source |
-|-------------|--------|--------|
-| FY22 | $150M | State reports |
-| FY23 | $350M | State reports |
-| FY24 | $856M | Boston Herald (actual) |
-| FY25 | $1.06B | State projection ($830M spent as of June) |
+---
 
-## Data Sources
+## Headline cost figures (FY25 peak)
 
-### Primary Data (User-Uploaded)
-- **MA State Checkbook**: $2.48B total (46,921 transactions from Executive Office of Housing and Livable Communities)
-- **Immigrant-Filtered Vendors**: $228.6M across 28 organizations
-- **OCPF Data**: ACLU employee political donations ($59,185 / 519 donations)
-- **Lobbyist Registry**: MIRA Coalition lobbying records ($87,548)
+| Metric | Amount | Basis |
+|---|---|---|
+| Total annual cost, FY25 | $1.88B | Combined — see confidence note below |
+| **Documented portion** | **$1.21B** | Shelter + wraparound, from state reports |
+| *Estimated portion* | *$670M* | *Education + healthcare, modelled by CIS* |
+| Two-year total (FY24+FY25) | $3.1B | Combined |
 
-### Secondary Sources
-- [Boston Herald](https://www.bostonherald.com/2025/03/04/mass-spending-on-shelters-housing-migrants-locals-hits-half-a-billion-in-fy25-data-shows/) - Shelter spending reports
-- [Center for Immigration Studies](https://cis.org/Report/Massachusetts-Case-Study-Mass-Immigration-and-Welfare-State) - Education and healthcare cost estimates
-- [MA Executive Office of Housing](https://www.mass.gov/orgs/executive-office-of-housing-and-livable-communities) - Biweekly shelter reports
-- [Fox News](https://www.foxnews.com/politics/migrant-influx-pushing-mass-shelter-costs-past-1b-fy25-report) - FY25 projections
+### Confidence note — read this before quoting the $1.88B
 
-## Files
+The $1.88B blends two very different kinds of evidence:
 
-### Dashboard
-- `ma-immigrant-audit.html` - Interactive dashboard (standalone HTML)
-- `MA_Audit_Final.jsx` - React component version
+- **Documented ($1.21B)** — emergency shelter ($1.06B) and wraparound services ($150M),
+  drawn from state budget reports and payment records.
+- **Estimated ($670M)** — K-12 education ($575M, 25,000 students × $23,000) and healthcare
+  ($95M, $3,800/person) are **modelled figures from the Center for Immigration Studies**, an
+  advocacy organisation. They rest on assumptions about student counts and per-capita cost,
+  not on audited spending.
 
-### Social Media
-- `social-card.html` - 1200×630 social sharing card
-- `social_card.jsx` - React version
+The dashboard's calculator lets you switch between the two bases. Quoting the documented
+$1.21B is the more defensible claim.
 
-### Raw Data
-- `checkbook_data_*.csv` - MA State Checkbook exports (17 files, $2.48B total)
-- `immigrant_orgs_FILTERED.csv` - Filtered immigrant-related vendors ($228.6M)
-- `ocpf-output.txt` - ACLU political donation records
-- `Lobbyist_Public_Search*.pdf` - MIRA lobbying filings
+---
 
-## Key Organizations Analyzed
+## The checkbook data — and an important correction
+
+The repo ships `immigrant_orgs_FILTERED.csv`: **8,883 real payments totalling $228,606,882**
+to 28 vendors, October 2019 – February 2026, all from the Executive Office of Health & Human
+Services.
+
+**That $228.6M is not $228.6M of immigrant spending.** The vendor list was built by matching
+names against substrings — `IMMIGRANT`, `REFUGEE`, `MIRA`, `NEIGHBOR` — and that match is
+broad. Re-sorting every payment by what its appropriation actually funds gives:
+
+| Category | Amount | Share |
+|---|---|---|
+| MassHealth claims / community health centres | $179,338,211 | 78.4% |
+| **Immigrant & refugee programs** | **$38,177,054** | **16.7%** |
+| **Family shelter & housing reserves** | **$8,582,543** | **3.8%** |
+| Name-match false positives | $2,509,074 | 1.1% |
+| **Defensible core (immigrant + shelter)** | **$46,759,597** | **20.5%** |
+
+What the filter caught by accident:
+
+- The three largest "immigrant vendors" — East Boston Neighborhood Health Center ($59.2M),
+  Brockton Neighborhood Health Center ($58.6M) and NeighborHealth ($45.4M) — matched on
+  **NEIGHBOR**. They are federally qualified health centres billing MassHealth for all
+  patients, not immigrant programs. The single largest appropriation in the whole file is
+  **MassHealth Senior Care ($83.5M, 36.5%)**.
+- `MIRA` matched a dentist (**Paul F. Miraglia D.D.S.**), a daycare (**Mini Miracles**),
+  **Amirah Inc**, and two individuals (**Kristina Miranda**, **Miranda Y Chen**).
+
+The genuinely immigrant-specific spending is smaller but far harder to dispute. The
+**Office for Refugees and Immigrants** received **$45.2M** across the period; the
+Low-Income Citizenship Program is $17.9M; resettlement agencies $3.7M; Afghan refugee
+services $2.7M.
+
+Reproduce any of this yourself:
+
+```bash
+python scripts/analyze_csv.py      # raw totals by vendor, FY, appropriation, fund
+python scripts/classify_tiers.py   # evidence-tier breakdown -> data/tiers.json
+python scripts/build_payload.py    # compact JSON the dashboard reads -> data/payments.json
+```
+
+---
+
+## Key organizations
 
 ### MIRA Coalition (Massachusetts Immigrant & Refugee Advocacy)
-- **Contracts**: $7,662,233 (293 payments)
-- **Lobbying**: $87,548 (registered lobbyists 2022-2025)
-- **Conflict**: Receives contracts from same agencies they lobby
 
-### Top Contract Recipients
-| Organization | Amount | Type |
-|--------------|--------|------|
-| East Boston Neighborhood Health | $59.2M | Health Center (72% MassHealth) |
-| Brockton Neighborhood Health | $58.6M | Health Center (80% MassHealth) |
-| NeighborHealth Corp | $45.4M | Health Center (95% MassHealth) |
-| RIAC | $17.1M | Refugee Services |
-| IFSI | $14.5M | Immigrant Services |
-| MIRA Coalition | $7.66M | Advocacy + Lobbying |
+| | |
+|---|---|
+| State contracts | $7,662,233 (293 payments) |
+| Registered lobbying | $87,548 (2022–2025) |
+| Contract growth | FY20 $256K → FY25 $4.2M |
 
-### Shelter Infrastructure Vendors
-| Vendor | Total | Immigrant % | Purpose |
-|--------|-------|-------------|---------|
-| Accenture LLP | $26.0M | 50.6% | IT systems for shelter tracking |
-| UMass | $12.6M | 100% | Emergency shelter operations |
-| Internal Security | $7.1M | 100% | Security guards at shelters |
-| TransPerfect | $6.9M | 100% | Translation services |
+MIRA is paid by the same agencies it is registered to lobby. Contract breakdown: family
+shelter services $3.98M, immigrants housing reserve $1.30M, immigration legal assistance
+$930K, low-income citizenship $804K, immigrant supports reserve $474K.
 
-## ACLU → Politicians
+Registered lobbyists: Amy M. Grunder ($61,132, 2022–25), Charles Group Consulting ($20,000,
+2022), Edwin Jonathan Paz ($4,626, 2023), Elizabeth Sweet ($1,790, 2025).
 
-$59,185 in donations from ACLU employees to MA politicians (519 donations)
+### ACLU employee political donations
 
-| Recipient | Amount | Role |
-|-----------|--------|------|
-| Michelle Wu | $3,215 | Boston Mayor (Sanctuary City) |
-| Maura Healey | $2,370 | Governor |
-| Andrea Campbell | $1,775 | Attorney General |
-| Aaron Michlewitz | $1,550 | House Ways & Means Chair |
-| Karen Spilka | $1,200 | Senate President |
+$59,185 across 519 donations from ACLU employees to Massachusetts politicians. Top
+recipients: Michelle Wu ($3,215), Maura Healey ($2,370), Andrea Campbell ($1,775), Aaron
+Michlewitz ($1,550), Karen Spilka ($1,200). Annual totals rose from $825 in 2019 to $11,616
+in 2022.
 
-Donations spiked 14x from 2019 ($825) to 2022 ($11,616) during migrant influx.
+*These are donations by individuals who work at the ACLU, reported to OCPF. They are not
+organizational contributions, and the timing is presented as a sequence of events, not as
+evidence that one caused the other.*
 
-## Methodology
+---
 
-1. **Checkbook Analysis**: Downloaded complete MA State Checkbook data for Executive Office of Housing and Livable Communities
-2. **Vendor Filtering**: Identified 28 immigrant-related vendors by name/mission
-3. **MassHealth Separation**: Distinguished healthcare billing (67%) from actual immigrant programs (33%)
-4. **State Report Integration**: Combined checkbook data with official state shelter cost reports
-5. **Cost Estimation**: Applied CIS study methodology for education and healthcare costs
-6. **Lobbying Cross-Reference**: Matched contract recipients with registered lobbyist filings
-7. **Political Donation Analysis**: Analyzed OCPF records for ACLU employee contributions
+## Repo contents
+
+| File | What it is |
+|---|---|
+| `index.html` | The dashboard (standalone, no build step) |
+| `data/payments.json` | Compact payment data the dashboard reads (338 KB, generated) |
+| `data/tiers.json` | Evidence-tier rollup (generated) |
+| `immigrant_orgs_FILTERED.csv` | Source payment records, 8,883 rows |
+| `ocpf-output.txt` | ACLU employee donation records from OCPF |
+| `scripts/*.py` | Reproducible analysis — see commands above |
+| `MA_Audit_Final.jsx` | React port of an earlier version of the dashboard |
+| `social-card.html`, `social_card.jsx`, `social-card.jpg` | 1200×630 sharing card |
+| `DATA_SUMMARY.md` | Full figure-by-figure summary with sources |
+| `METHODOLOGY.md` | How each number was derived, and its confidence level |
+
+---
+
+## Sources
+
+- FY27 General Appropriations Act, signed 9 July 2026 ($63.42B) — [Mass.gov budget](https://budget.digital.mass.gov/)
+- [MassBudget in-depth analysis of the FY27 GAA](https://massbudget.org/2026/07/21/massbudget-in-depth-analysis-of-fy-2027-gaa/)
+- [MAPC FY27 budget summary](https://www.mapc.org/planning101/update-on-the-fy27-budget-2/)
+- [MA Executive Office of Housing and Livable Communities](https://www.mass.gov/orgs/executive-office-of-housing-and-livable-communities) — biweekly shelter reports
+- [Mass.gov: families in shelter falls below 5,000](https://www.mass.gov/news/number-of-families-in-shelter-falls-below-5000-following-governor-healeys-reforms)
+- [WBUR: further cuts to emergency family shelter](https://www.wbur.org/news/2026/03/11/massachusetts-shelter-system-more-cuts-restrictions-hearing)
+- [Boston Herald: shelter/housing spending, March 2025](https://www.bostonherald.com/2025/03/04/mass-spending-on-shelters-housing-migrants-locals-hits-half-a-billion-in-fy25-data-shows/)
+- [Center for Immigration Studies: Massachusetts case study](https://cis.org/Report/Massachusetts-Case-Study-Mass-Immigration-and-Welfare-State) — *advocacy source; education and healthcare estimates*
+- MA Statewide payment records (CTHRU), OCPF campaign finance, Secretary of State lobbyist registry
+
+---
+
+## Corrections
+
+Found an error? Open an issue with the figure, the source you checked it against, and where
+it appears. Corrections are applied and noted rather than quietly edited.
 
 ## License
 
-Data sourced from public records. Analysis and visualization code is open source.
-
-## Contributing
-
-Pull requests welcome. Please cite sources for any data additions.
+Analysis and visualization code released under the MIT License (see `LICENSE`). Underlying
+data is public record.
