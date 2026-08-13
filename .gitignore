@@ -6,3 +6,6 @@ Thumbs.db
 venv/
 .vscode/
 .idea/
+
+# OCPF spreadsheet exports contain contributor home addresses - do not publish
+ocpf-output*.xlsx

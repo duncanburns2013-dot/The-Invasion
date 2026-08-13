@@ -179,6 +179,60 @@ conflict, stated as such.
 
 ---
 
+## 5b. REGISTERED LOBBYING (Level A — Secretary of the Commonwealth)
+
+Transcribed from `data/lobbyist_png/` page renders; source PDFs in `data/lobbyist_pdf/`.
+The PDFs embed subset fonts with no ToUnicode map, so no text extractor can read them —
+the renders exist so any reader can check the figures against the originals.
+
+### ACLU of Massachusetts
+
+| Year | In-house salaries | Isaacson Political Consulting | Expenses | Total |
+|---|---|---|---|---|
+| 2020 | $230,595.16 | $80,000.00 | $132,996.93 | **$443,592.09** |
+| 2021 | $202,985.00 | $80,000.00 | $65,572.83 | **$348,557.83** |
+| 2022 | $206,888.77 | $85,000.00 | $52,765.89 | **$344,654.66** |
+| 2023 | $219,234.00 | $90,000.00 | $84,894.59 | **$394,128.59** |
+| 2024 | $170,359.00 | $95,000.00 | $71,598.96 | **$336,957.96** |
+| 2025 | $221,769.00 | $97,500.00 | $146,439.67 | **$465,708.67** |
+| **2020–2025 total** | | | | **$2,333,599.80** |
+| 2026 (1/1–6/30 only) | $112,213.00 | $37,500.00 | $58,504.16 | *$208,217.16* |
+
+That is roughly **40× the $59,185 in employee campaign donations** — the lobbying is the
+bigger number by a wide margin.
+
+> **Scope caveat, important.** ACLU-MA's registered purpose is *"all matters related to the
+> protection and advancement of civil liberties and civil rights."* That is broad and **not
+> immigration-specific**. This total must not be described as immigration lobbying. It is
+> included here because the site's ACLU section previously showed only the much smaller
+> donation figure, which understated the organisation's actual Beacon Hill spending.
+
+### MIRA Coalition — 2026 registration (new)
+
+| Item | Amount |
+|---|---|
+| Amy M Grunder | $8,887.22 |
+| Maroni Minter *(new)* | $3,335.85 |
+| Gilberto Javier Calderin *(new)* | $2,584.43 |
+| Elizabeth Sweet | $1,985.80 |
+| **Lobbyist salaries subtotal** | **$16,793.30** |
+| Charles Group Consulting (firm) | $23,000.00 |
+| Operating expenses | $1,640.53 |
+| Additional expenses | $28,207.13 |
+| **2026 total (1/1–6/30 only)** | **$69,640.96** |
+
+Half of 2026 alone nearly equals the $87,548 previously reported for all of 2022–2025 —
+because that earlier figure counted only individual lobbyist salaries, not payments to
+lobbying firms or disclosed expenses.
+
+MIRA's 2026 registration names its targets explicitly: **S.1681 / H.2580** and
+**S.1127 / H.1954**, plus budget legislation; lobbying House and Senate leadership, the
+Governor, SOC, AG, and A&F, DOT, DHE, EOLWD, EOPSS, EOHED and EOHHS. Registered address
+69 Canal Street, Ste. 3, Boston. **Unlike ACLU-MA's, this registration is explicitly
+immigration policy.**
+
+---
+
 ## 6. ACLU EMPLOYEE DONATIONS (Level A, correlation only)
 
 $59,185 across 519 donations by individuals employed by the ACLU. **Individual** OCPF
@@ -186,11 +240,23 @@ filings, not organisational contributions.
 
 | Recipient | Role | Amount | Donations |
 |---|---|---|---|
-| Michelle Wu | Boston Mayor | $3,215 | 98 |
-| Maura Healey | Governor | $2,370 | 16 |
+| **Rahsaan Hall** | ACLU-MA racial justice director; 2022 Plymouth DA candidate | **$4,643** | 43 |
+| **Deval Patrick** | Former Governor | **$3,850** | 14 |
+| Michelle Wu | Boston Mayor | $2,915 | 95 |
+| **Quentin Palfrey** | 2018 Lt. Governor nominee | **$2,700** | 5 |
+| Maura Healey | Governor | $2,300 | 14 |
+| MA Democratic State Committee | Party committee | $1,800 | 2 |
 | Andrea Campbell | Attorney General | $1,775 | 10 |
 | Aaron Michlewitz | House Ways & Means Chair | $1,550 | 9 |
+| Martin J. Walsh | Former Boston Mayor | $1,525 | 14 |
 | Karen Spilka | Senate President | $1,200 | 6 |
+
+> **Correction (August 2026).** An earlier version of this table reported Wu at $3,215/98
+> and Healey at $2,370/16 — both overstated — and omitted the two largest recipients
+> entirely. The single biggest recipient of ACLU-employee money is **Rahsaan Hall**, who at
+> the time was ACLU-MA's own racial justice program director and running for Plymouth County
+> District Attorney. Recomputed directly from the 519 records in `ocpf-output.txt`;
+> the $59,185.25 / 519 headline total is confirmed correct.
 
 Annual totals: $825 (2019) → $11,616 (2022). Presented as a sequence, not causation.
 

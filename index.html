@@ -1009,6 +1009,26 @@
     .evid-key div { display: flex; gap: 9px; align-items: flex-start; }
     .evid-key i { width: 12px; height: 12px; flex: 0 0 12px; margin-top: 4px; }
 
+    /* ============ LOBBYING CHART ============ */
+    .lobby-chart { border: 1px solid var(--gray-200); background: #fff; }
+    .lobby-row {
+      display: grid; grid-template-columns: 74px 1fr 118px;
+      align-items: center; gap: 14px; padding: 12px 20px;
+      border-bottom: 1px solid var(--gray-100); cursor: default;
+      transition: background .15s;
+    }
+    .lobby-row:last-child { border-bottom: 0; }
+    .lobby-row:hover { background: var(--warm-white); }
+    .lobby-year { font-weight: 700; font-size: 14px; }
+    .lobby-year small { display: block; font-weight: 600; font-size: 10.5px; color: var(--gray-500); letter-spacing: .6px; }
+    .lobby-track { display: flex; height: 26px; background: var(--gray-100); }
+    .lobby-seg { transition: filter .15s; }
+    .lobby-row:hover .lobby-seg { filter: brightness(1.1); }
+    .lobby-total { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .lobby-legend { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px; font-size: 13px; }
+    .lobby-legend span { display: flex; align-items: center; gap: 7px; font-weight: 600; }
+    .lobby-legend i { width: 13px; height: 13px; display: inline-block; }
+
     /* ============ THE PAPER TRAIL ============ */
     .trail-line { position: relative; margin: 30px 0 34px; padding-left: 0; }
     .trail-track { position: absolute; left: 0; right: 0; top: 21px; height: 3px; background: var(--gray-200); }
@@ -1988,6 +2008,40 @@
             <div class="lobbyist-amount">$1,790</div>
           </div>
         </div>
+
+        <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:18px;margin:36px 0 6px;">2026 Registration — Newly Filed</h3>
+        <p class="section-desc">MIRA's 2026 filing with the Secretary of the Commonwealth covers the 1/1–6/30 disclosure period only, and already totals <strong style="color:var(--crimson);">$69,641</strong> — close to the entire 2022–2025 figure above, in half a year. Two lobbyists are new to the registration.</p>
+        <div class="lobbyist-grid">
+          <div class="lobbyist-card">
+            <div><div class="lobbyist-name">Amy M Grunder</div><div class="lobbyist-years">2026 · continuing</div></div>
+            <div class="lobbyist-amount">$8,887</div>
+          </div>
+          <div class="lobbyist-card">
+            <div><div class="lobbyist-name">Maroni Minter</div><div class="lobbyist-years">2026 · new</div></div>
+            <div class="lobbyist-amount">$3,336</div>
+          </div>
+          <div class="lobbyist-card">
+            <div><div class="lobbyist-name">Gilberto Javier Calderin</div><div class="lobbyist-years">2026 · new</div></div>
+            <div class="lobbyist-amount">$2,584</div>
+          </div>
+          <div class="lobbyist-card">
+            <div><div class="lobbyist-name">Elizabeth Sweet</div><div class="lobbyist-years">2026 · continuing</div></div>
+            <div class="lobbyist-amount">$1,986</div>
+          </div>
+          <div class="lobbyist-card">
+            <div><div class="lobbyist-name">Charles Group Consulting</div><div class="lobbyist-years">2026 · lobbying firm</div></div>
+            <div class="lobbyist-amount">$23,000</div>
+          </div>
+          <div class="lobbyist-card" style="border-color:var(--crimson);">
+            <div><div class="lobbyist-name">Disclosed expenses</div><div class="lobbyist-years">operating + additional</div></div>
+            <div class="lobbyist-amount" style="color:var(--crimson);">$29,848</div>
+          </div>
+        </div>
+
+        <div class="info-box" style="margin-top:24px;">
+          <p><strong>What MIRA registered to lobby for in 2026:</strong> legislation and policies benefiting immigrants and refugees — naming <strong>S.1681 / H.2580</strong> (civil rights and safety of all Massachusetts residents) and <strong>S.1127 / H.1954</strong> (access to equitable representation) — plus budget legislation and executive branch policy. Named targets: House and Senate leadership and members, the Governor, SOC, AG, and the executive offices A&amp;F, DOT, DHE, EOLWD, EOPSS, EOHED and EOHHS.</p>
+          <p style="margin-top:10px;">Unlike ACLU-MA's broad civil-liberties registration, <strong>MIRA's registered purpose is explicitly immigration policy</strong> — which is what makes its state contracts and its lobbying the cleaner conflict to point at. Registered address: 69 Canal Street, Ste. 3, Boston.</p>
+        </div>
       </div>
 
       <!-- ACLU -->
@@ -2008,15 +2062,46 @@
         </div>
 
         <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: 18px; margin-bottom: 16px;">Power Brokers They Fund</h3>
+        <p style="font-size:13px;color:var(--gray-500);margin-bottom:14px;">Recomputed from the 519 OCPF records in this repo, August 2026. An earlier version of this table overstated Wu and Healey and omitted the two largest recipients.</p>
         <div class="power-list">
+          <div class="power-item">
+            <div>
+              <div class="power-name">Rahsaan Hall</div>
+              <div class="power-role">ACLU-MA RACIAL JUSTICE DIRECTOR → 2022 PLYMOUTH DA CANDIDATE</div>
+            </div>
+            <div class="power-stats">
+              <div class="power-amount">$4,643</div>
+              <div class="power-count">43 donations</div>
+            </div>
+          </div>
+          <div class="power-item">
+            <div>
+              <div class="power-name">Deval Patrick</div>
+              <div class="power-role">FORMER GOVERNOR</div>
+            </div>
+            <div class="power-stats">
+              <div class="power-amount">$3,850</div>
+              <div class="power-count">14 donations</div>
+            </div>
+          </div>
           <div class="power-item">
             <div>
               <div class="power-name">Michelle Wu</div>
               <div class="power-role">BOSTON MAYOR (SANCTUARY CITY)</div>
             </div>
             <div class="power-stats">
-              <div class="power-amount">$3,215</div>
-              <div class="power-count">98 donations</div>
+              <div class="power-amount">$2,915</div>
+              <div class="power-count">95 donations</div>
+            </div>
+          </div>
+          <div class="power-item">
+            <div>
+              <div class="power-name">Quentin Palfrey</div>
+              <div class="power-role">2018 LT. GOVERNOR NOMINEE</div>
+            </div>
+            <div class="power-stats">
+              <div class="power-amount">$2,700</div>
+              <div class="power-count">5 donations</div>
             </div>
           </div>
           <div class="power-item">
@@ -2025,8 +2110,8 @@
               <div class="power-role">GOVERNOR</div>
             </div>
             <div class="power-stats">
-              <div class="power-amount">$2,370</div>
-              <div class="power-count">16 donations</div>
+              <div class="power-amount">$2,300</div>
+              <div class="power-count">14 donations</div>
             </div>
           </div>
           <div class="power-item">
@@ -2060,6 +2145,31 @@
             </div>
           </div>
         </div>
+
+        <!-- ACLU LOBBYING -->
+        <h2 class="section-title" style="margin-top:44px;">The Bigger Number: Registered Lobbying</h2>
+        <p class="section-desc">Employee campaign donations are the small line. ACLU of Massachusetts is a registered lobbying client with the Secretary of the Commonwealth, and its disclosed lobbying spend is roughly <strong>40&times;</strong> the donation total above.</p>
+
+        <div class="callout" style="margin-bottom:26px;">
+          <div class="callout-content">
+            <h3>$2.33 Million, 2020–2025</h3>
+            <p>Six complete registration years of in-house lobbyist salaries, payments to the outside firm <strong>Isaacson Political Consulting</strong>, and disclosed operating expenses. <strong>2025 was the peak year at $465,709.</strong> The first half of 2026 already adds another $208,217.</p>
+            <p style="margin-top:10px;padding-top:10px;border-top:1px solid var(--gray-200);font-size:13.5px;"><strong>Important scope caveat:</strong> ACLU-MA's registered purpose is <em>"all matters related to the protection and advancement of civil liberties and civil rights."</em> That is broad and <strong>not immigration-specific</strong>. This figure should not be described as immigration lobbying — unlike MIRA's, whose registration names immigration bills directly.</p>
+          </div>
+          <div class="callout-stats">
+            <div class="callout-big">40×</div>
+            <div class="callout-label">LOBBYING vs DONATIONS</div>
+            <div class="callout-small">$2.33M vs $59,185</div>
+            <div class="callout-label">2020–2025</div>
+          </div>
+        </div>
+
+        <div class="interactive-note">Interactive — hover any year</div>
+        <div class="lobby-chart" id="lobbyChart"></div>
+        <p style="font-size:13px;color:var(--gray-700);margin-top:14px;font-style:italic;">
+          Source: Massachusetts Secretary of the Commonwealth, Lobbyist Public Search. These PDFs embed subset fonts with no Unicode mapping, so no text extractor can read them — the figures above were transcribed from page renders committed to
+          <a href="https://github.com/duncanburns2013-dot/The-Invasion/tree/main/data/lobbyist_png" style="color:var(--crimson);">data/lobbyist_png/</a> so any reader can check them against the original images. 2026 covers the 1/1–6/30 disclosure period only.
+        </p>
       </div>
 
     </div>
@@ -2302,6 +2412,49 @@
       });
       calc();
     }
+
+    /* ---------------- ACLU LOBBYING CHART ---------------- */
+    // MA Secretary of the Commonwealth lobbyist registry; see data/lobbyist_png/.
+    var LOBBY = [
+      { year: 2020, salaries: 230595.16, entity: 80000.00, expenses: 132996.93 },
+      { year: 2021, salaries: 202985.00, entity: 80000.00, expenses: 65572.83 },
+      { year: 2022, salaries: 206888.77, entity: 85000.00, expenses: 52765.89 },
+      { year: 2023, salaries: 219234.00, entity: 90000.00, expenses: 84894.59 },
+      { year: 2024, salaries: 170359.00, entity: 95000.00, expenses: 71598.96 },
+      { year: 2025, salaries: 221769.00, entity: 97500.00, expenses: 146439.67 },
+      { year: 2026, salaries: 112213.00, entity: 37500.00, expenses: 58504.16, partial: true }
+    ];
+    (function () {
+      var el = document.getElementById('lobbyChart');
+      if (!el) return;
+      LOBBY.forEach(function (r) { r.total = r.salaries + r.entity + r.expenses; });
+      var max = Math.max.apply(null, LOBBY.map(function (r) { return r.total; }));
+      var C = [['salaries', '#1a2744', 'In-house lobbyist salaries'],
+               ['entity', '#c9a227', 'Isaacson Political Consulting'],
+               ['expenses', '#9c1b1f', 'Disclosed expenses']];
+      el.innerHTML = LOBBY.map(function (r) {
+        var segs = C.map(function (c) {
+          var w = r[c[0]] / max * 100;
+          return '<div class="lobby-seg" style="width:' + w + '%;background:' + c[1] + '" title="' +
+                 c[2] + ': ' + fmt(r[c[0]]) + '"></div>';
+        }).join('');
+        return '<div class="lobby-row">' +
+          '<div class="lobby-year">' + r.year + (r.partial ? '<small>H1 ONLY</small>' : '<small>FULL YEAR</small>') + '</div>' +
+          '<div class="lobby-track">' + segs + '</div>' +
+          '<div class="lobby-total"' + (r.partial ? ' style="color:var(--gray-500)"' : '') + '>' + fmt(r.total) + '</div>' +
+          '</div>';
+      }).join('') +
+        '<div class="lobby-row" style="background:var(--gray-100)">' +
+        '<div class="lobby-year">TOTAL<small>2020–2025</small></div>' +
+        '<div style="font-size:13px;color:var(--gray-700)">Six complete registration years</div>' +
+        '<div class="lobby-total" style="color:var(--crimson);font-size:19px">' +
+        fmt(LOBBY.filter(function (r) { return !r.partial; }).reduce(function (s, r) { return s + r.total; }, 0)) +
+        '</div></div>';
+      var leg = document.createElement('div');
+      leg.className = 'lobby-legend';
+      leg.innerHTML = C.map(function (c) { return '<span><i style="background:' + c[1] + '"></i>' + c[2] + '</span>'; }).join('');
+      el.parentNode.insertBefore(leg, el.nextSibling);
+    })();
 
     /* ---------------- THE PAPER TRAIL ---------------- */
     var TRAIL = [
