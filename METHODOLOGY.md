@@ -129,7 +129,14 @@ the correct **$26.712B**, which overstated every user's share by about 12%. Fixe
 - Because of the above, dividing $7,632 by 5% to infer a "$152,640 average income" overstates
   actual average income. The average *tax bill* is the defensible figure; the implied income
   is not.
-- "Per household" figures ($671) use ~2.8M households and are a different denominator again.
+- "Per household" figures use **2,829,804 households** (2024 ACS), giving **$664** on the
+  full $1.88B. An earlier $671 used a rounded 2.8M.
+- The **"$3.1B two-year total" has been withdrawn.** It does not reconcile: FY24+FY25 on a
+  consistent basis is either $3.56B (all categories) or $2.74B (FY24 shelter only). The
+  documented two-year **shelter** figure, $1.92B, is used instead.
+- On the card itself, $537 is now shown alongside **$346** — the same flat average computed
+  on the documented-only $1.21B — so the headline is not quoted without its confidence
+  context.
 
 ---
 

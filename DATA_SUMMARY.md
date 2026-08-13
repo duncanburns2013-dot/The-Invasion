@@ -68,8 +68,16 @@ Derived per-capita figures (from the $1.88B):
 | Metric | Value | Calculation |
 |---|---|---|
 | Per taxpayer/year | $537 | $1.88B ÷ 3.5M filers |
-| Per household/year | $671 | $1.88B ÷ 2.8M households |
-| Two-year total FY24+FY25 | $3.1B | combined |
+| Per household/year | $664 | $1.88B ÷ 2,829,804 households (2024 ACS) |
+| Two-year shelter FY24+FY25 | $1.92B | $856M + $1.06B, documented |
+
+> **Withdrawn (August 2026): the "$3.1B two-year total".** It does not reconcile with this
+> site's own components. FY25 is $1.88B. Adding FY24 on the *same* basis (shelter $856M plus
+> the same $820M of education/services/healthcare) gives **$3.56B**; adding FY24 shelter
+> *alone* gives **$2.74B**. $3.1B is neither, and would require an FY24 of $1.22B that no
+> published component produces. Replaced with the two-year **shelter** figure, which is
+> documented and adds up. The per-household figure was also corrected from $671 to $664
+> (it used a rounded 2.8M rather than the actual 2,829,804 households).
 
 **$670M (36%) of the headline is Level C** — modelled by the Center for Immigration Studies,
 an advocacy organisation. The dashboard calculator defaults to the documented $1.21B.

@@ -40,7 +40,7 @@ Shelter caseload has fallen below 5,000 families (first time since July 2023) to
 | Total annual cost, FY25 | $1.88B | Combined — see confidence note below |
 | **Documented portion** | **$1.21B** | Shelter + wraparound, from state reports |
 | *Estimated portion* | *$670M* | *Education + healthcare, modelled by CIS* |
-| Two-year total (FY24+FY25) | $3.1B | Combined |
+| Two-year shelter (FY24+FY25) | $1.92B | Documented — $856M + $1.06B |
 
 ### Confidence note — read this before quoting the $1.88B
 
