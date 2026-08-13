@@ -108,8 +108,14 @@ python scripts/build_payload.py    # compact JSON the dashboard reads -> data/pa
 | | |
 |---|---|
 | State contracts | $7,662,233 (293 payments) |
-| Registered lobbying | $87,548 (2022–2025) |
+| Registered lobbying | $87,548 (2022–2025, salaries only) |
+| **Registered lobbying, 2026 (1/1–6/30)** | **$69,641** |
 | Contract growth | FY20 $256K → FY25 $4.2M |
+
+MIRA's 2026 filing alone — half a year — nearly matches the whole 2022–2025 figure, because
+that earlier number counted only individual lobbyist salaries and omitted payments to
+lobbying firms ($23,000 to Charles Group Consulting) and disclosed expenses ($29,848). Two
+lobbyists are new for 2026: Maroni Minter and Gilberto Javier Calderin.
 
 MIRA is paid by the same agencies it is registered to lobby. Contract breakdown: family
 shelter services $3.98M, immigrants housing reserve $1.30M, immigration legal assistance
@@ -118,12 +124,39 @@ $930K, low-income citizenship $804K, immigrant supports reserve $474K.
 Registered lobbyists: Amy M. Grunder ($61,132, 2022–25), Charles Group Consulting ($20,000,
 2022), Edwin Jonathan Paz ($4,626, 2023), Elizabeth Sweet ($1,790, 2025).
 
+### ACLU of Massachusetts — lobbying is the bigger number
+
+| Year | Total disclosed lobbying |
+|---|---|
+| 2020 | $443,592 |
+| 2021 | $348,558 |
+| 2022 | $344,655 |
+| 2023 | $394,129 |
+| 2024 | $336,958 |
+| 2025 | **$465,709** (peak) |
+| **2020–2025** | **$2,333,600** |
+| 2026 (1/1–6/30) | *$208,217* |
+
+In-house lobbyist salaries plus payments to Isaacson Political Consulting plus disclosed
+expenses, from the Secretary of the Commonwealth's registry. That is roughly **40×** the
+employee donation total below.
+
+> **Scope caveat:** ACLU-MA's registered purpose is *"all matters related to the protection
+> and advancement of civil liberties and civil rights"* — broad, and **not
+> immigration-specific**. Do not describe this as immigration lobbying. MIRA's registration,
+> by contrast, names immigration bills directly.
+
 ### ACLU employee political donations
 
 $59,185 across 519 donations from ACLU employees to Massachusetts politicians. Top
-recipients: Michelle Wu ($3,215), Maura Healey ($2,370), Andrea Campbell ($1,775), Aaron
+recipients: **Rahsaan Hall ($4,643, 43 donations)** — then ACLU-MA's own racial justice
+director and a 2022 Plymouth County DA candidate — **Deval Patrick ($3,850)**, Michelle Wu
+($2,915), Quentin Palfrey ($2,700), Maura Healey ($2,300), Andrea Campbell ($1,775), Aaron
 Michlewitz ($1,550), Karen Spilka ($1,200). Annual totals rose from $825 in 2019 to $11,616
 in 2022.
+
+*Corrected August 2026: an earlier version overstated Wu ($3,215/98) and Healey ($2,370/16)
+and omitted the two largest recipients. The $59,185.25 / 519 total is confirmed correct.*
 
 *These are donations by individuals who work at the ACLU, reported to OCPF. They are not
 organizational contributions, and the timing is presented as a sequence of events, not as
@@ -142,7 +175,8 @@ evidence that one caused the other.*
 | `ocpf-output.txt` | ACLU employee donation records from OCPF |
 | `scripts/*.py` | Reproducible analysis — see commands above |
 | `MA_Audit_Final.jsx` | React port of an earlier version of the dashboard |
-| `social-card.html`, `social_card.jsx`, `social-card.jpg` | 1200×630 sharing card |
+| `social-card.html`, `social-card.jpg` | 1200×630 sharing card — evergreen, no figures or dates |
+| `scripts/render_social_card.py` | Regenerates `social-card.jpg` from the HTML |
 | `DATA_SUMMARY.md` | Full figure-by-figure summary with sources |
 | `METHODOLOGY.md` | How each number was derived, and its confidence level |
 
