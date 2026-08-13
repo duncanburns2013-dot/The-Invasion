@@ -43,11 +43,12 @@ def main():
     pages = 0
     for f in pdfs:
         doc = pymupdf.open(f)
+        n = doc.page_count
         for i, page in enumerate(doc):
             page.get_pixmap(dpi=args.dpi).save(out / f'{f.stem}_p{i + 1}.png')
             pages += 1
         doc.close()
-        print(f'{f.name:24} {len(doc)} pages')
+        print(f'{f.name:24} {n} pages')
     print(f'\nrendered {pages} pages at {args.dpi} dpi -> {out}')
     return 0
 
