@@ -67,6 +67,72 @@ $1.88B available as an explicit alternative.
 
 ---
 
+## Per-taxpayer figures — two different methods
+
+The site quotes **$537 per taxpayer per year**. The household calculator will usually give a
+different answer. Both are correct; they slice the same total two different ways, and the
+difference is worth understanding before quoting either.
+
+### Method 1 — flat average per filer (this is the $537)
+
+```
+$1.88B ÷ ~3.5M individual filers = $537
+$1.21B ÷ ~3.5M individual filers = $346   (documented basis)
+```
+
+Everyone gets the same number regardless of income. Simple, but it tells you nothing about
+your own position.
+
+### Method 2 — income-scaled share (this is the calculator)
+
+```
+your MA income tax (5% flat)
+  × (spending ÷ $26.712B total FY25 income tax collections)
+  × years
+```
+
+FY25 Massachusetts income tax collections were **$26.712B** of $43.705B total tax revenue
+(MA DOR). So the full $1.88B is **7.04%** of income tax revenue, and the documented $1.21B is
+**4.53%**.
+
+### Why they disagree, and where they meet
+
+The average Massachusetts filer's income tax bill is about **$26.712B ÷ 3.5M = $7,632**. A
+household with $115,000 in taxable income pays $5,750 — about **75% of average** — so its
+income-scaled share is 75% of the flat average:
+
+| Taxable income | MA income tax | vs. average filer | Share (full $1.88B) | Flat average |
+|---|---|---|---|---|
+| $115,000 | $5,750 | 75% | **$405** | $537 |
+| $120,000 | $6,000 | 79% | **$422** | $537 |
+| ~$152,640 | $7,632 | 100% | **$537** | $537 |
+
+**The two methods agree exactly at the average filer.** Below-average earners come in under
+$537; above-average earners come in over it. That is the correct behaviour for a flat-rate
+income tax, not a discrepancy.
+
+Note also that the calculator **defaults to the documented $1.21B**, not the $1.88B headline,
+so its default answer is lower again for that separate reason.
+
+### Correction
+
+An earlier version of the calculator used **$23.8B** as the income-tax denominator instead of
+the correct **$26.712B**, which overstated every user's share by about 12%. Fixed August 2026.
+
+### Caveats
+
+- The **~3.5M filer count is the weakest input** in both methods and is not independently
+  verified here. Every per-taxpayer figure moves inversely with it.
+- The $26.712B denominator includes capital gains tax and the 4% millionaires surtax
+  ($3.049B), which are not levied at 5%. Including them is deliberate: that revenue really
+  does fund the budget, so counting it reduces an ordinary filer's apportioned share.
+- Because of the above, dividing $7,632 by 5% to infer a "$152,640 average income" overstates
+  actual average income. The average *tax bill* is the defensible figure; the implied income
+  is not.
+- "Per household" figures ($671) use ~2.8M households and are a different denominator again.
+
+---
+
 ## The checkbook data — Level A payments, contested filter
 
 `immigrant_orgs_FILTERED.csv` contains 8,883 payments totalling $228,606,882 (Oct 2019 –
