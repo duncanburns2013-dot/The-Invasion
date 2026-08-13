@@ -69,16 +69,22 @@ $1.88B available as an explicit alternative.
 
 ## Per-taxpayer figures — two different methods
 
-The site quotes **$537 per taxpayer per year**. The household calculator will usually give a
+The site quotes **$517 per tax filer per year**. The household calculator will usually give a
 different answer. Both are correct; they slice the same total two different ways, and the
 difference is worth understanding before quoting either.
 
-### Method 1 — flat average per filer (this is the $537)
+### Method 1 — flat average per filer (this is the $517)
 
 ```
-$1.88B ÷ ~3.5M individual filers = $537
-$1.21B ÷ ~3.5M individual filers = $346   (documented basis)
+$1.88B ÷ 3,636,887 individual filers = $517
+$1.21B ÷ 3,636,887 individual filers = $333   (documented basis)
 ```
+
+The filer count is **IRS Data Book FY2025, Table 1-3** — individual income tax returns filed
+in Massachusetts. FY2023 was 3,671,275 and FY2024 was 3,593,199, so ~3.6M is stable.
+These are *federal* returns filed from Massachusetts, used as a proxy for state filers;
+Massachusetts' own filing threshold differs slightly, so the true state count may be a little
+higher, which would push the per-filer figure slightly lower still.
 
 Everyone gets the same number regardless of income. Simple, but it tells you nothing about
 your own position.
@@ -97,18 +103,18 @@ FY25 Massachusetts income tax collections were **$26.712B** of $43.705B total ta
 
 ### Why they disagree, and where they meet
 
-The average Massachusetts filer's income tax bill is about **$26.712B ÷ 3.5M = $7,632**. A
-household with $115,000 in taxable income pays $5,750 — about **75% of average** — so its
-income-scaled share is 75% of the flat average:
+The average Massachusetts filer's income tax bill is about **$26.712B ÷ 3,636,887 = $7,345**.
+A household with $115,000 in taxable income pays $5,750 — about **78% of average** — so its
+income-scaled share is 78% of the flat average:
 
 | Taxable income | MA income tax | vs. average filer | Share (full $1.88B) | Flat average |
 |---|---|---|---|---|
-| $115,000 | $5,750 | 75% | **$405** | $537 |
-| $120,000 | $6,000 | 79% | **$422** | $537 |
-| ~$152,640 | $7,632 | 100% | **$537** | $537 |
+| $115,000 | $5,750 | 78% | **$405** | $517 |
+| $120,000 | $6,000 | 82% | **$422** | $517 |
+| ~$146,895 | $7,345 | 100% | **$517** | $517 |
 
 **The two methods agree exactly at the average filer.** Below-average earners come in under
-$537; above-average earners come in over it. That is the correct behaviour for a flat-rate
+$517; above-average earners come in over it. That is the correct behaviour for a flat-rate
 income tax, not a discrepancy.
 
 Note also that the calculator **defaults to the documented $1.21B**, not the $1.88B headline,
@@ -121,12 +127,12 @@ the correct **$26.712B**, which overstated every user's share by about 12%. Fixe
 
 ### Caveats
 
-- The **~3.5M filer count is the weakest input** in both methods and is not independently
-  verified here. Every per-taxpayer figure moves inversely with it.
+- The filer count is now sourced (IRS Data Book FY2025, 3,636,887) rather than the earlier
+  unverified ~3.5M. That correction moved the headline from $537 to **$517**.
 - The $26.712B denominator includes capital gains tax and the 4% millionaires surtax
   ($3.049B), which are not levied at 5%. Including them is deliberate: that revenue really
   does fund the budget, so counting it reduces an ordinary filer's apportioned share.
-- Because of the above, dividing $7,632 by 5% to infer a "$152,640 average income" overstates
+- Because of the above, dividing $7,345 by 5% to infer a "~$146,895 average income" overstates
   actual average income. The average *tax bill* is the defensible figure; the implied income
   is not.
 - "Per household" figures use **2,829,804 households** (2024 ACS), giving **$664** on the
@@ -134,9 +140,9 @@ the correct **$26.712B**, which overstated every user's share by about 12%. Fixe
 - The **"$3.1B two-year total" has been withdrawn.** It does not reconcile: FY24+FY25 on a
   consistent basis is either $3.56B (all categories) or $2.74B (FY24 shelter only). The
   documented two-year **shelter** figure, $1.92B, is used instead.
-- On the card itself, $537 is now shown alongside **$346** — the same flat average computed
-  on the documented-only $1.21B — so the headline is not quoted without its confidence
-  context.
+- On the card itself, $517 is shown alongside **$333** — the same flat average computed on the
+  documented-only $1.21B — and **$263 per resident**, so the headline is never quoted without
+  its confidence and denominator context.
 
 ---
 
@@ -194,8 +200,31 @@ claim they did.
 
 The state-by-state table draws its non-Massachusetts figures from FAIR's 2023 national study
 and CBO shelter-cost reporting, while the Massachusetts row uses this project's own FY25
-estimate. **These are different methodologies and different years**, so the table shows
-relative scale only. Per-capita figures across rows are not strictly comparable.
+estimate. **These are different methodologies, different years and different populations**, so
+the table shows relative scale only. This caveat is now printed on the tab itself, not just
+here.
+
+### Correction — the per-capita column (August 2026)
+
+The column previously showed **$537** for Massachusetts. Every other row is cost ÷ population;
+the Massachusetts entry was cost ÷ *tax filers*. Auditing the column confirms the rest are
+genuine per-capita:
+
+| State | Shown | Cost ÷ population | Consistent? |
+|---|---|---|---|
+| California | $795 | $795 | yes |
+| Texas | $375 | $376 | yes |
+| Florida | $365 | $354 | yes |
+| New York | $365 | $364 | yes |
+| New Jersey | $475 | $473 | yes |
+| Illinois | $315 | $320 | yes |
+| Colorado | $260 | $254 | yes |
+| **Massachusetts** | **$537** | **$263** | **no — per-filer, not per-capita** |
+
+On the same basis as every other row, $1.88B across 7,136,171 residents (Census 2024) is
+**$263 per resident**. The table now uses that. This roughly halves the Massachusetts
+per-capita figure and moves it from mid-pack toward the bottom of the list — the previous
+number made the state look about twice as costly as a like-for-like calculation supports.
 
 ---
 

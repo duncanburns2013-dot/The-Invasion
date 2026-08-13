@@ -67,7 +67,8 @@ Derived per-capita figures (from the $1.88B):
 
 | Metric | Value | Calculation |
 |---|---|---|
-| Per taxpayer/year | $537 | $1.88B ÷ 3.5M filers |
+| Per tax filer/year | $517 | $1.88B ÷ 3,636,887 filers (IRS Data Book FY2025) |
+| Per resident/year | $263 | $1.88B ÷ 7,136,171 residents (Census 2024) |
 | Per household/year | $664 | $1.88B ÷ 2,829,804 households (2024 ACS) |
 | Two-year shelter FY24+FY25 | $1.92B | $856M + $1.06B, documented |
 

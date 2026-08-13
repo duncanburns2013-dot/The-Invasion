@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://duncanburns2013-dot.github.io/The-Invasion/">
   <meta property="og:title" content="The Invasion: The Taxpayer Cost">
-  <meta property="og:description" content="$1.88B in one year on migrant services. HomeBASE spending up 718% from FY22 to FY25. $537 per Massachusetts taxpayer. Every figure sourced and confidence-rated.">
+  <meta property="og:description" content="$1.88B in one year on migrant services. HomeBASE spending up 718% from FY22 to FY25. $517 per MA tax filer. Every figure sourced and confidence-rated.">
   <meta property="og:image" content="https://duncanburns2013-dot.github.io/The-Invasion/social-card.jpg?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@DuncanBurnsMA">
   <meta name="twitter:title" content="The Invasion: The Taxpayer Cost">
-  <meta name="twitter:description" content="$1.88B in one year. HomeBASE up 718%. $537 per Massachusetts taxpayer. Every figure sourced and confidence-rated.">
+  <meta name="twitter:description" content="$1.88B in one year. HomeBASE up 718%. $517 per MA tax filer. Every figure sourced and confidence-rated.">
   <meta name="twitter:image" content="https://duncanburns2013-dot.github.io/The-Invasion/social-card.jpg?v=2">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1365,13 +1365,13 @@
           </div>
           
           <div class="highlight-box">
-            <div class="highlight-label">Annual Cost Per MA Taxpayer</div>
-            <div class="highlight-value">$537</div>
-            <div class="highlight-note">$1.88B total ÷ ~3.5 million filers</div>
+            <div class="highlight-label">Annual Cost Per MA Tax Filer</div>
+            <div class="highlight-value">$517</div>
+            <div class="highlight-note">$1.88B ÷ 3,636,887 filers (IRS, FY2025)</div>
             <div style="font-size:11.5px;line-height:1.5;color:rgba(255,253,249,.62);margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,253,249,.18);">
               A flat average — everyone counted the same regardless of income.
-              <strong style="color:var(--gold);">$346</strong> on the documented-only basis.
-              The filer count is approximate; every figure here moves inversely with it.
+              <strong style="color:var(--gold);">$333</strong> on the documented-only basis.
+              Per <em>resident</em> it is <strong style="color:var(--gold);">$263</strong> across 7.14M people.
             </div>
             <div class="highlight-sub">
               <div class="highlight-sub-item">
@@ -1599,6 +1599,15 @@
         <h2 class="section-title">How Massachusetts Compares</h2>
         <p class="section-desc">State and local costs from illegal immigration (CBO, FAIR 2023). Massachusetts is one of four states bearing the heaviest shelter burden.</p>
 
+        <div class="evid" style="border-left:4px solid var(--gold);margin-bottom:26px;">
+          <div class="interactive-note">Read the comparison carefully</div>
+          <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:19px;margin-bottom:6px;">This table mixes two different methods</h3>
+          <p style="font-size:14px;color:var(--gray-700);">Every row except Massachusetts comes from <strong>FAIR's 2023 national study</strong>, which estimates the total state-and-local cost of illegal immigration across education, healthcare, justice and welfare. The <strong>Massachusetts row is this project's own FY25 estimate</strong>, built from shelter, education, services and healthcare for the emergency-assistance population. <strong>Different methodologies, different years, and different populations</strong> — so read the table for order of magnitude only, not as a like-for-like ranking.</p>
+          <p style="font-size:14px;color:var(--gray-700);margin-top:12px;padding-top:12px;border-top:1px solid var(--gray-200);">
+            <strong>Correction, August 2026.</strong> The per-capita column previously showed <strong>$537</strong> for Massachusetts. That was cost per <em>tax filer</em>, while every other row is cost per <em>resident</em> — so Massachusetts appeared roughly twice as costly as a consistent calculation supports. On the same basis as the other states, $1.88B across 7,136,171 residents is <strong style="color:var(--crimson);">$263 per resident</strong>. The table now uses that. The per-filer figure ($517) is on the Overview tab, where it is labelled as such.
+          </p>
+        </div>
+
         <div class="info-box">
           <p><strong>Key finding:</strong> The Congressional Budget Office confirmed that state and local governments in <strong>New York, Massachusetts, Illinois, and Colorado</strong> spent $3.3 billion combined on shelter services in 2023 alone—accounting for 90% of the national increase in asylum seekers in shelters. Meanwhile, the federal government collects payroll taxes while states pay for schools, shelters, and healthcare.</p>
         </div>
@@ -1650,7 +1659,7 @@
             <span class="state-name highlight">Massachusetts</span>
             <div class="state-bar"><div class="state-bar-fill ma" style="width: 6%;"></div></div>
             <span class="state-cost" style="color: var(--crimson);">$1.88B</span>
-            <span class="state-per-capita" style="color: var(--crimson); font-weight: 700;">$537</span>
+            <span class="state-per-capita" style="color: var(--crimson); font-weight: 700;">$263</span>
           </div>
           <div class="state-row">
             <span class="state-name">Colorado</span>
@@ -2357,8 +2366,9 @@
     };
     // MA DOR FY25: income tax subtotal $26.712B of $43.705B total tax collections.
     var MA_INCOME_TAX_REVENUE = 26712;  // $M
-    var MA_FILERS = 3.5e6;              // approx. individual returns
-    var AVG_TAX_PER_FILER = MA_INCOME_TAX_REVENUE * 1e6 / MA_FILERS;  // ~$7,632
+    // IRS Data Book FY2025 Table 1-3: individual income tax returns filed in MA.
+    var MA_FILERS = 3636887;
+    var AVG_TAX_PER_FILER = MA_INCOME_TAX_REVENUE * 1e6 / MA_FILERS;  // ~$7,345
     var basis = 'core';
     var inc = document.getElementById('calcIncome');
     var yrs = document.getElementById('calcYears');
@@ -2371,7 +2381,7 @@
       var shareOfTax = t.amount / MA_INCOME_TAX_REVENUE;      // fraction of income tax that funds this
       var mine = myTax * shareOfTax * years;
       var hourly = income / 2080;
-      var flatAvg = t.amount * 1e6 / MA_FILERS;              // the "$537 per taxpayer" style figure
+      var flatAvg = t.amount * 1e6 / MA_FILERS;              // the "$517 per filer" style figure
       var vsAvg = myTax / AVG_TAX_PER_FILER;                 // your tax bill vs the average filer's
 
       document.getElementById('calcIncomeOut').textContent = '$' + income.toLocaleString('en-US');
@@ -2396,13 +2406,13 @@
             : 'about <strong>' + pct + '%</strong> of that, so your share comes in <strong>above</strong> the flat per-filer average.');
 
       document.getElementById('calcFoot').innerHTML =
-        '<strong>Two ways to slice it.</strong> The <em>flat average</em> divides the total by ~3.5M filers — everyone gets the same number regardless of income. ' +
-        'The <em>headline $537</em> on this site is that flat average using the full $1.88B. ' +
+        '<strong>Two ways to slice it.</strong> The <em>flat average</em> divides the total by 3,636,887 filers — everyone gets the same number regardless of income. ' +
+        'The <em>headline $517</em> on this site is that flat average using the full $1.88B. ' +
         'Your figure above is <em>income-scaled</em>: your Massachusetts income tax (5% flat) × the share of state income-tax revenue this spending represents (' +
         fmtM(t.amount) + ' ÷ $26.71B collected in FY25, per MA DOR), × years. ' +
         'The two agree exactly for a filer of average income. ' + t.note +
         ' Either way this is an allocation of cost, not a line on your tax bill — the state funds programs from pooled revenue. ' +
-        'The ~3.5M filer count is approximate and is the weakest input here.';
+        'Filer count: IRS Data Book FY2025, Table 1-3 (individual income tax returns filed in Massachusetts).';
     }
     if (inc) {
       inc.addEventListener('input', calc);
